@@ -1,0 +1,24 @@
+{
+  "menu": {
+    "projects": "Projects",
+    "collaborate": "Collaborate",
+    "team": "About us",
+    "articles": "Articles",
+    "contact": "Contact"
+  },
+  "footer": {
+    "title": "Let's keep in touch",
+    "subtitle": "Write us through any of our social networks, we will answer soon!",
+    "thanks": "Thanks to"
+  },
+  "projects": {
+    "title": "Check our projects",
+    "view": "View project",
+    "pictures": "About the project"
+  },
+  "donations": {
+    "cta": "¡Donate!",
+    "ok": "Thanks for the info",
+    "text": "Thanks to donations we can work on different projects to help people have a better life, you can help us using Bizum ({bizum}), Verse ({verse}) or a donation to our Bank Account ({bank})"
+  }
+}

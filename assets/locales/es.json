@@ -1,0 +1,24 @@
+{
+  "menu": {
+    "projects": "Proyectos",
+    "collaborate": "Colabora",
+    "team": "Nosotros",
+    "articles": "Artículos",
+    "contact": "Contacta"
+  },
+  "footer": {
+    "title": "Sígamos en contacto",
+    "subtitle": "Escríbenos a través de cualquiera de nuestras redes sociales, ¡Contestamos pronto!",
+    "thanks": "Gracias a"
+  },
+  "projects": {
+    "title": "Conoce nuestros proyectos",
+    "view": "Ver proyecto",
+    "pictures": "Sobre el proyecto"
+  },
+  "donations": {
+    "cta": "¡Dona!",
+    "ok": "Gracias por la información",
+    "text": "Gracias a las donaciones podemos trabajar en los diferentes proyectos para ayudar a las personas a tener una mejor vida, puedes ayudarnos usando Bizum ({bizum}), Verse ({verse}) o una donación a nuestra Cuenta Bancaria ({bank})"
+  }
+}
