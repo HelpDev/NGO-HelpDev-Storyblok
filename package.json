@@ -1,7 +1,7 @@
 {
-  "name": "ngo-needu-storyblok",
+  "name": "ngo-helpdev-storyblok",
   "version": "1.0.7",
-  "description": "Storyblok project for Needu",
+  "description": "Storyblok project for HelpDev",
   "author": "HelpDev",
   "private": true,
   "scripts": {

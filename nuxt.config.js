@@ -7,7 +7,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: 'Need Ü',
+    title: 'HelpDev',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -74,14 +74,13 @@ export default {
   generate: generateStoryblokUrls(token),
 
   i18n: {
-    locales: ['en', 'es', 'ca'],
+    locales: ['en', 'es'],
     defaultLocale: 'en',
     vueI18n: {
       fallbackLocale: 'en',
       messages: {
         en: require('./assets/locales/en.json'),
-        es: require('./assets/locales/es.json'),
-        ca: require('./assets/locales/ca.json')
+        es: require('./assets/locales/es.json')
       }
     },
     detectBrowserLanguage: {
