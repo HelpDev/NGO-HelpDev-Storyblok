@@ -1,8 +1,6 @@
 export const state = () => ({
   social: {},
   donations: {
-    bizum: '03027',
-    verse: '$needu',
-    bank: 'ES95 2100 2838 71 0210139497'
+    bank: 'ES37 2100 0852 0202 0073 2275'
   }
 });

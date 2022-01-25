@@ -1,4 +1,4 @@
-# [Storyblok](https://www.storyblok.com/) + [Nuxt](https://nuxtjs.org/) + [Helpdev](https://helpdev.org) = [Need Ü](https://need-u.org)
+# [Storyblok](https://www.storyblok.com/) + [Nuxt](https://nuxtjs.org/) + [Helpdev](https://helpdev.org) = [Helpdev](https://helpdev.org)
 
 ## Configuration Steps
 

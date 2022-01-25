@@ -19,6 +19,6 @@
   "donations": {
     "cta": "¡Donate!",
     "ok": "Thanks for the info",
-    "text": "Thanks to donations we can work on different projects to help people have a better life, you can help us using Bizum ({bizum}), Verse ({verse}) or a donation to our Bank Account ({bank})"
+    "text": "Thanks to donations we can work on different projects to help people have a better life, you can help us using your time, a tweet or a donation to our Bank Account ({bank})"
   }
 }
