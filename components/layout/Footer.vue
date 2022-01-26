@@ -66,6 +66,14 @@
             >
               <social-icon icon-name="mail-dot-ru" />
             </nuxt-link>
+
+            <a
+              class="bg-white shadow-lg font-normal items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3 inline-block hover:bg-social-github hover:fill-child-white"
+              target="_blank"
+              href="https://github.com/HelpDev/NGO-HelpDev-Storyblok"
+            >
+              <social-icon icon-name="github" />
+            </a>
           </div>
         </div>
         <div class="w-full lg:w-6/12 pt-3 lg:pt-0 lg:px-4">
