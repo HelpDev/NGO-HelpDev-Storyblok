@@ -7,18 +7,13 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: 'HelpDev',
+    title: 'HelpDev - The #1 open source NGO',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: 'universal',
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
@@ -27,17 +22,20 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/tailwind-extra.css'],
+  css: [
+    'node_modules/components-helpdev-storyblok/assets/css/tailwind-extra.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    '~/plugins/story-components',
-    '~/plugins/locale',
-    '~/plugins/tailwind-components',
-    '~/plugins/composition-api.js',
-    '~/plugins/storyblok-rich-text-renderer.js'
+    'node_modules/components-helpdev-storyblok/plugins/story-components',
+    'node_modules/components-helpdev-storyblok/plugins/locale',
+    'node_modules/components-helpdev-storyblok/plugins/common-stores',
+    'node_modules/components-helpdev-storyblok/plugins/tailwind-components',
+    'node_modules/components-helpdev-storyblok/plugins/composition-api.js',
+    'node_modules/components-helpdev-storyblok/plugins/storyblok-rich-text-renderer.js'
   ],
   /*
    ** Auto import components
@@ -74,10 +72,19 @@ export default {
   generate: generateStoryblokUrls(token),
 
   i18n: {
-    locales: ['en', 'es'],
+    locales: [
+      {
+        code: 'en',
+        name: 'English'
+      },
+      {
+        code: 'es',
+        name: 'Español'
+      }
+    ],
     defaultLocale: 'en',
     vueI18n: {
-      fallbackLocale: 'en',
+      fallbackLocale: 'es',
       messages: {
         en: require('./assets/locales/en.json'),
         es: require('./assets/locales/es.json')

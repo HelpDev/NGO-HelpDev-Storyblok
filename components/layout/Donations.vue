@@ -24,9 +24,8 @@
       :showCloseButton="true"
       :okButtonText="$t('donations.ok')"
       >{{
+        settings.bank &&
         $t('donations.text', {
-          bizum: settings.bizum,
-          verse: settings.verse,
           bank: settings.bank
         })
       }}</t-dialog

@@ -11,10 +11,11 @@
 
 <script>
 import {
-  onStoryBridgeInputChangeUpdateContent,
+  loadMenuFromApi,
+  loadPageContentFromApi,
   onStoryBridgeChangedToPublishedRefreshPage,
-  loadPageContentFromApi
-} from '~/helpers';
+  onStoryBridgeInputChangeUpdateContent
+} from 'components-helpdev-storyblok/helpers/common-page.helper';
 
 export default {
   data() {
@@ -26,18 +27,9 @@ export default {
     onStoryBridgeInputChangeUpdateContent(this);
     onStoryBridgeChangedToPublishedRefreshPage(this);
   },
-  async fetch(context) {
-    // Loading reference data - Articles in our case
-    if (context.store.state.articles.loaded !== '1') {
-      let articlesRefRes = await context.app.$storyapi.get(`cdn/stories/`, {
-        starts_with: context.localePath('articles/'),
-        version: 'published'
-      });
-      context.store.commit('articles/setArticles', articlesRefRes.data.stories);
-      context.store.commit('articles/setLoaded', '1');
-    }
-  },
-  asyncData(context) {
+  async asyncData(context) {
+    await loadMenuFromApi(context);
+
     return loadPageContentFromApi(
       context,
       `cdn/stories/${context.localePath('home')}`

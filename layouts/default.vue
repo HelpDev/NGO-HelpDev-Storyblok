@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import Header from '~/components/layout/Header.vue';
-import Footer from '~/components/layout/Footer.vue';
+import Header from 'components-helpdev-storyblok/components/layout/Header.vue';
 import Donations from '~/components/layout/Donations.vue';
+import Footer from '~/components/layout/Footer.vue';
 
 export default {
   components: {

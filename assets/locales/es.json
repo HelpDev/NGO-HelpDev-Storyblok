@@ -1,20 +1,8 @@
 {
-  "menu": {
-    "projects": "Proyectos",
-    "collaborate": "Colabora",
-    "team": "Nosotros",
-    "articles": "Artículos",
-    "contact": "Contacta"
-  },
   "footer": {
     "title": "Sígamos en contacto",
     "subtitle": "Escríbenos a través de cualquiera de nuestras redes sociales, ¡Contestamos pronto!",
     "thanks": "Gracias a"
-  },
-  "projects": {
-    "title": "Conoce nuestros proyectos",
-    "view": "Ver proyecto",
-    "pictures": "Sobre el proyecto"
   },
   "donations": {
     "cta": "¡Dona!",

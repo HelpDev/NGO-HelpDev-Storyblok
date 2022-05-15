@@ -2,7 +2,7 @@
   <footer class="relative bg-primary-500 pt-8 pb-6 mt-20">
     <div
       class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
-      style="height: 80px;"
+      style="height: 80px"
     >
       <svg
         class="absolute bottom-0 overflow-hidden"
@@ -30,50 +30,38 @@
           </h5>
           <div class="mt-6">
             <a
-              class="bg-white  shadow-lg font-normal items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3 inline-block hover:bg-social-twitter hover:fill-child-white"
+              class="bg-white shadow-lg font-normal items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3 inline-block hover:bg-social-twitter hover:fill-child-white"
               target="_blank"
-              href="https://twitter.com/HelpDev_"
+              href="https://twitter.com/apisf"
             >
-              <social-icon icon-name="twitter"
-            /></a>
-            <!-- <a
+              <social-icon icon-name="twitter" /></a
+            ><a
               class="bg-white shadow-lg font-normal items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3 inline-block hover:bg-social-facebook hover:fill-child-white"
               target="_blank"
-              href="https://facebook.com/HelpDev_"
+              href="https://facebook.com/apisf"
             >
-              <social-icon icon-name="facebook"/></a
-            > -->
+              <social-icon icon-name="facebook"
+            /></a>
             <!-- <a
               class="bg-white shadow-lg font-normal items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3 inline-block hover:bg-social-instagram hover:fill-child-white"
               target="_blank"
-              href="https://instagram.com/HelpDev_"
+              href="https://instagram.com/apisf"
             >
               <social-icon icon-name="instagram"
-            />
-
-            </a> -->
+            /></a> -->
             <a
               class="bg-white shadow-lg font-normal items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3 inline-block hover:bg-social-whatsapp hover:fill-child-white"
-              href="whatsapp://send?text=https://helpdev.org"
+              href="whatsapp://send?text=https://apisf.org"
               data-action="share/whatsapp/share"
             >
               <social-icon icon-name="whatsapp" />
             </a>
-
             <nuxt-link
               class="bg-white shadow-lg font-normal items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3 inline-block hover:bg-social-mail hover:fill-child-white"
               :to="localePath('contact')"
             >
               <social-icon icon-name="mail-dot-ru" />
             </nuxt-link>
-
-            <a
-              class="bg-white shadow-lg font-normal items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3 inline-block hover:bg-social-github hover:fill-child-white"
-              target="_blank"
-              href="https://github.com/HelpDev/NGO-HelpDev-Storyblok"
-            >
-              <social-icon icon-name="github" />
-            </a>
           </div>
         </div>
         <div class="w-full lg:w-6/12 pt-3 lg:pt-0 lg:px-4">

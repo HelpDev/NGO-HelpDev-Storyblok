@@ -11,10 +11,10 @@
 
 <script>
 import {
-  onStoryBridgeInputChangeUpdateContent,
+  loadPageContent,
   onStoryBridgeChangedToPublishedRefreshPage,
-  loadPageContentFromApi
-} from '~/helpers';
+  onStoryBridgeInputChangeUpdateContent
+} from 'components-helpdev-storyblok/helpers/common-page.helper';
 
 export default {
   data() {
@@ -26,11 +26,8 @@ export default {
     onStoryBridgeInputChangeUpdateContent(this);
     onStoryBridgeChangedToPublishedRefreshPage(this);
   },
-  asyncData(context) {
-    return loadPageContentFromApi(
-      context,
-      `cdn/stories/${context.localePath('team')}`
-    );
+  async asyncData(context) {
+    return loadPageContent(context, context.params.slug);
   }
 };
 </script>
