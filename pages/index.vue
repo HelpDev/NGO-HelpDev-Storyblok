@@ -11,8 +11,7 @@
 
 <script>
 import {
-  loadMenuFromApi,
-  loadPageContentFromApi,
+  loadPageContent,
   onStoryBridgeChangedToPublishedRefreshPage,
   onStoryBridgeInputChangeUpdateContent
 } from 'components-helpdev-storyblok/helpers/common-page.helper';
@@ -28,12 +27,7 @@ export default {
     onStoryBridgeChangedToPublishedRefreshPage(this);
   },
   async asyncData(context) {
-    await loadMenuFromApi(context);
-
-    return loadPageContentFromApi(
-      context,
-      `cdn/stories/${context.localePath('home')}`
-    );
+    return loadPageContent(context, 'home');
   }
 };
 </script>
