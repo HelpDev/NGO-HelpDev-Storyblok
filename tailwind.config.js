@@ -6,6 +6,7 @@
  */
 
 const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultHelpdevTheme = require('components-helpdev-storyblok/tailwind.config');
 
 module.exports = {
   theme: {
@@ -27,44 +28,12 @@ module.exports = {
           '800': '#572300',
           '900': '#1F0C00'
         },
-        social: {
-          twitter: '#1da1f2',
-          facebook: '#1877f2',
-          instagram: '#e4405f',
-          mail: '#005ff9',
-          whatsapp: '#25D366',
-          github: '#171515'
-        }
+        social: defaultHelpdevTheme.theme.extend.colors.social
       },
-      height: {
-        '10v': '10vh',
-        '20v': '20vh',
-        '30v': '30vh',
-        '40v': '40vh',
-        '50v': '50vh',
-        '60v': '60vh',
-        '70v': '70vh',
-        '80v': '80vh',
-        '90v': '90vh',
-        '100v': '100vh'
-      }
+      height: defaultHelpdevTheme.theme.extend.height
     }
   },
   variants: {},
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio')
-  ],
-  purge: {
-    // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
-    enabled: process.env.NODE_ENV === 'production',
-    content: [
-      'components/**/*.vue',
-      'layouts/**/*.vue',
-      'pages/**/*.vue',
-      'plugins/**/*.js',
-      'node_modules/vue-tailwind/dist/*.js',
-      'nuxt.config.js'
-    ]
-  }
+  plugins: [...defaultHelpdevTheme.plugins],
+  purge: defaultHelpdevTheme.purge
 };
