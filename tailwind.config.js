@@ -18,15 +18,15 @@ module.exports = {
       },
       colors: {
         primary: {
-          '100': '#FFC8A3',
-          '200': '#FFAF7A',
-          '300': '#FF9752',
-          '400': '#FF7E29',
-          '500': '#FF6600',
-          '600': '#C75000',
-          '700': '#8F3900',
-          '800': '#572300',
-          '900': '#1F0C00'
+          100: '#FFC8A3',
+          200: '#FFAF7A',
+          300: '#FF9752',
+          400: '#FF7E29',
+          500: '#FF6600',
+          600: '#C75000',
+          700: '#8F3900',
+          800: '#572300',
+          900: '#1F0C00'
         },
         social: defaultHelpdevTheme.theme.extend.colors.social
       },
@@ -41,5 +41,6 @@ module.exports = {
     './node_modules/components-helpdev-storyblok/layouts/**/*.vue',
     './node_modules/components-helpdev-storyblok/pages/**/*.vue',
     './node_modules/components-helpdev-storyblok/plugins/**/*.js'
-  ]
+  ],
+  safelist: [...defaultHelpdevTheme.safelist]
 };
