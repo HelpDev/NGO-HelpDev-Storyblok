@@ -35,5 +35,11 @@ module.exports = {
   },
   variants: {},
   plugins: [...defaultHelpdevTheme.plugins],
-  purge: defaultHelpdevTheme.purge
+  content: [
+    ...defaultHelpdevTheme.content,
+    './node_modules/components-helpdev-storyblok/components/**/*.vue',
+    './node_modules/components-helpdev-storyblok/layouts/**/*.vue',
+    './node_modules/components-helpdev-storyblok/pages/**/*.vue',
+    './node_modules/components-helpdev-storyblok/plugins/**/*.js'
+  ]
 };
