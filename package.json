@@ -1,6 +1,6 @@
 {
   "name": "ngo-helpdev-storyblok",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "Storyblok project for HelpDev",
   "author": "HelpDev",
   "private": true,
@@ -18,7 +18,7 @@
     "@tailwindcss/typography": "^0.5.2",
     "@vue/composition-api": "^1.6.1",
     "axios": "^0.27.2",
-    "components-helpdev-storyblok": "HelpDev/Storyblok-Components#1.3.1",
+    "components-helpdev-storyblok": "HelpDev/Storyblok-Components#1.4.0",
     "heroicons": "^1.0.6",
     "nuxt": "^2.15.8",
     "nuxt-i18n": "^6.28.1",

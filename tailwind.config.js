@@ -35,12 +35,6 @@ module.exports = {
   },
   variants: {},
   plugins: [...defaultHelpdevTheme.plugins],
-  content: [
-    ...defaultHelpdevTheme.content,
-    './node_modules/components-helpdev-storyblok/components/**/*.vue',
-    './node_modules/components-helpdev-storyblok/layouts/**/*.vue',
-    './node_modules/components-helpdev-storyblok/pages/**/*.vue',
-    './node_modules/components-helpdev-storyblok/plugins/**/*.js'
-  ],
+  content: [...defaultHelpdevTheme.content],
   safelist: [...defaultHelpdevTheme.safelist]
 };
