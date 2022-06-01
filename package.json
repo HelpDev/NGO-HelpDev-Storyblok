@@ -18,7 +18,7 @@
     "@tailwindcss/typography": "^0.5.2",
     "@vue/composition-api": "^1.6.1",
     "axios": "^0.27.2",
-    "components-helpdev-storyblok": "HelpDev/Storyblok-Components#1.4.0",
+    "components-helpdev-storyblok": "HelpDev/Storyblok-Components#1.4.2",
     "heroicons": "^1.0.6",
     "nuxt": "^2.15.8",
     "nuxt-i18n": "^6.28.1",
