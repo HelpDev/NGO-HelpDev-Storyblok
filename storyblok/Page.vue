@@ -1,5 +1,5 @@
 <script setup>
-import { Container } from "@papanasi/vue";
+import { Container } from '@papanasi/vue';
 
 defineProps({ blok: Object });
 </script>

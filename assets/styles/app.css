@@ -1,69 +1,16 @@
-:root {
-  /* In this project we have our own variables */
-  --color-primary-200: #ece7ff;
-  --color-primary-300: #cbbfff;
-  --color-primary-400: #8a6efe;
-  --color-primary: #6945fe;
-  --color-primary-600: #5739ce;
-  --color-primary-700: #1f019a;
-  --color-primary-900: #140162;
+@import './variables.css';
+@import './vendor/normalize.css';
+@import './vendor/papanasi.css';
 
-  /* We override some global papanasi variables */
-  --pa-color-primary-brightest: var(--color-primary-200);
-  --pa-color-primary-brighter: var(--color-primary-300);
-  --pa-color-primary-bright: var(--color-primary-400);
-  --pa-color-primary-normal: var(--color-primary);
-  --pa-color-primary-dark: var(--color-primary-600);
-  --pa-color-primary-darker: var(--color-primary-700);
-  --pa-color-primary-darkest: var(--color-primary-900);
-
-  /* Meanwhile papanasi v1.1.0 */
-  --pa-grid-container-max-width: var(--pa-grid-max-width);
-}
-
+html,
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
+  font-family: var(--font-family);
+  font-size: 16px;
+  color: var(--color-basic-darkest);
+  background-color: var(--color-basic-brightest);
 }
 
-.demo {
-  /* And override some local papanasi variables */
-  --pa-grid-gutter: 0.15rem;
-  --pa-grid-gutter-vertical: 1rem;
-}
-
-.logo {
-  justify-content: center;
-}
-
-.title {
-  --pa-grid-gutter-vertical: 0rem;
-  justify-content: center;
-}
-
-.element {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.spinner {
-  /* Is also possible to modify the variables of a component */
-  --pa-spinner-size: 2rem;
-}
-
-.name {
-  font-weight: bold;
-  font-size: 0.75rem;
-}
-
-.footer {
-  font-size: 0.8rem;
-  justify-content: flex-end;
-  margin-top: 1rem;
-}
-
-.link {
-  color: var(--color-primary);
-  text-decoration: none;
+::selection {
+  color: var(--color-primary-darkest);
+  background: var(--color-primary-brightest);
 }

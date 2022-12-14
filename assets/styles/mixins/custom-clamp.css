@@ -1,0 +1,12 @@
+/* Creates a simple clamp() like behavior for properties that are not font-size*/
+@define-mixin custom-clamp $property, $min, $between, $max {
+  $(property): $min;
+
+  @media (--breakpoint-m) {
+    $(property): $between;
+  }
+
+  @media (--breakpoint-xl) {
+    $(property): $max;
+  }
+}

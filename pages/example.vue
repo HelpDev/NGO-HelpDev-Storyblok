@@ -1,5 +1,5 @@
 <script setup>
-const story = await useAsyncStoryblok("example", { version: "draft" });
+const story = await useAsyncStoryblok('example', { version: 'draft' });
 </script>
 
 <template>
