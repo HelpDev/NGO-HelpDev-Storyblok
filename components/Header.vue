@@ -7,16 +7,14 @@ const { data } = await storyblokApi.get('cdn/stories/config', {
   resolve_links: 'url'
 });
 
-const headerMenu = ref(null);
-
-headerMenu.value = data.story.content.header_menu;
+const headerMenu = ref(data.story.content.header_menu);
 </script>
 
 <template>
   <Row class="header">
     <Column>
       <NuxtLink to="/">
-        <h1>Storyblok Nuxt</h1>
+        <img src="~/assets/images/logo_landscape_white.png" :alt="data.story.content.title" width="100" />
       </NuxtLink>
     </Column>
     <Column>
@@ -41,6 +39,8 @@ headerMenu.value = data.story.content.header_menu;
 
 <style scoped>
 .header {
-  background-color: var(--color-primary-300);
+  background-color: var(--color-primary-normal);
+  position: sticky;
+  top: 0;
 }
 </style>

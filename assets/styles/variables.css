@@ -9,13 +9,13 @@
   --color-basic-darkest: #101116;
 
   /* Color Primary */
-  --color-primary-brightest: #b9daff;
-  --color-primary-brighter: #a4cfff;
-  --color-primary-bright: #53a5ff;
-  --color-primary-normal: #017aff;
-  --color-primary-dark: #005fc8;
-  --color-primary-darker: #004590;
-  --color-primary-darkest: #002a58;
+  --color-primary-brightest: #ffd4b8;
+  --color-primary-brighter: #ffc8a3;
+  --color-primary-bright: #ff9752;
+  --color-primary-normal: #ff6600;
+  --color-primary-dark: #c75000;
+  --color-primary-darker: #8f3900;
+  --color-primary-darkest: #572300;
 
   /* Color Secondary */
   --color-secondary-brightest: #eeeaff;
@@ -43,11 +43,12 @@
   --font-family: 'Noto Sans', system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', sans-serif;
   --font-family-heading: Outfit, system-ui, -apple-system, Georgia, serif;
 
-  --font-size-s: clamp(0.5rem, 0.7vw, 0.75rem);
-  --font-size-m: clamp(0.75rem, 0.8vw, 1rem);
-  --font-size-l: clamp(1rem, 1.1vw, 1.2rem);
-  --font-size-xl: clamp(1.25rem, 1.6vw, 1.6rem);
-  --font-size-xxl: clamp(2.25rem, 3.25rem, 3.25rem);
+  --font-size-s: 0.75rem;
+  --font-size-m: 1rem;
+  --font-size-l: 1.2rem;
+  --font-size-xl: 1.6rem;
+  --font-size-xxl: 3.25rem;
+  --font-size-xxxl: 4.5rem;
 
   --font-weight-light: 300;
   --font-weight-normal: 400;

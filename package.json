@@ -23,6 +23,7 @@
     }
   },
   "devDependencies": {
+    "@nuxtjs/google-fonts": "^3.0.0-1",
     "@storyblok/nuxt": "^4.6.0",
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "eslint": "^8.18.0",

@@ -3,7 +3,7 @@ const accessToken = process.env.STORYBLOK_TOKEN;
 
 export default defineNuxtConfig({
   css: ['@papanasi/vue/papanasi.css', '~/assets/styles/app.css'],
-  modules: ['@storyblok/nuxt'],
+  modules: ['@storyblok/nuxt', '@nuxtjs/google-fonts'],
   storyblok: {
     accessToken
   },
@@ -18,8 +18,16 @@ export default defineNuxtConfig({
       autoprefixer: {},
       'postcss-discard-comments': {},
       'postcss-custom-media': {
-        importFrom: './styles/variables.css'
+        importFrom: './assets/styles/variables.css'
       }
+    }
+  },
+  googleFonts: {
+    families: {
+      Outfit: {
+        wght: [300, 400, 700, 800]
+      },
+      'Noto+Sans': true
     }
   }
 });
