@@ -24,7 +24,3 @@ $ yarn dev
 # generate static project
 $ yarn generate
 ```
-
-## Tailwind
-
-You will find your tailwind config viewer at `http://localhost:3000/_tailwind/`

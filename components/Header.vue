@@ -13,10 +13,10 @@ headerMenu.value = data.story.content.header_menu;
 </script>
 
 <template>
-  <Row>
+  <Row class="header">
     <Column>
       <NuxtLink to="/">
-        <h1 class="text-[#50b0ae] text-3xl font-bold">Storyblok Nuxt</h1>
+        <h1>Storyblok Nuxt</h1>
       </NuxtLink>
     </Column>
     <Column>
@@ -32,3 +32,9 @@ headerMenu.value = data.story.content.header_menu;
     </Column>
   </Row>
 </template>
+
+<style scoped>
+.header {
+  background-color: var(--color-primary-300);
+}
+</style>
