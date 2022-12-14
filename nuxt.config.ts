@@ -1,6 +1,10 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
-const token = process.env.STORYBLOK_TOKEN;
+const accessToken = process.env.STORYBLOK_TOKEN;
 
 export default defineNuxtConfig({
-  modules: [["@storyblok/nuxt", { accessToken: token }]],
+  css: ["@papanasi/vue/papanasi.css", "~/assets/styles/app.css"],
+  modules: ["@storyblok/nuxt"],
+  storyblok: {
+    accessToken,
+  },
 });
