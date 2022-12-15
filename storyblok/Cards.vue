@@ -17,9 +17,13 @@ defineProps({ blok: Object });
   margin: 2rem auto;
 
   &__row {
-    width: 100%;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 2vw;
+  }
+
+  @media (--breakpoint-m) {
+    padding: 0;
   }
 }
 </style>
