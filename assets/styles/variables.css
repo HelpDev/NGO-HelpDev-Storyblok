@@ -60,6 +60,9 @@
   --transition-duration-fast: 150ms;
   --transition-duration-normal: 300ms;
   --transition-duration-slow: 600ms;
+
+  /* Header */
+  --header-height: 8rem;
 }
 
 /* Breakpoints Medias */
