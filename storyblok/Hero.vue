@@ -25,18 +25,19 @@ defineProps({ blok: Object });
 <style scoped>
 .hero {
   --hero-height: 90vh;
+  --background-from: var(--color-primary-normal);
+  --background-to: var(--color-primary-dark);
 
-  background-color: var(--color-primary-darker);
-  background-image: linear-gradient(180deg, var(--color-primary-normal) 10%, var(--color-primary-normal) 100%);
+  background-color: var(--background-from);
+  background-image: linear-gradient(180deg, var(--background-from) 10%, var(--background-to) 100%);
   height: var(--hero-height);
   overflow: hidden;
 
   &__container {
-    background-position: 175% top;
+    background-position: right top;
     background-repeat: no-repeat;
     background-size: contain;
     margin: 0 auto;
-    padding-top: var(--header-height);
     height: var(--hero-height);
     display: flex;
     flex-direction: column;
@@ -70,14 +71,15 @@ defineProps({ blok: Object });
 
   &__subtitle {
     color: var(--color-basic-brightest);
-    font-size: var(--font-size-m);
-    line-height: calc(var(--font-size-m) * 1.5);
+    font-size: var(--font-size-l);
+    line-height: calc(var(--font-size-l) * 1.5);
     text-align: center;
     max-width: 80%;
 
     @media (--breakpoint-s) {
-      font-size: var(--font-size-l);
-      line-height: calc(var(--font-size-l) * 1.5);
+      font-size: var(--font-size-xl);
+      line-height: calc(var(--font-size-xl) * 1.5);
+      font-weight: var(--font-weight-light);
     }
 
     @media (--breakpoint-m) {

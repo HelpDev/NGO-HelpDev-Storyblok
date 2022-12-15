@@ -1,5 +1,5 @@
 <script setup>
-import { Column, Container, Row } from '@papanasi/vue';
+import { Button, Column, Container, Row } from '@papanasi/vue';
 const storyblokApi = useStoryblokApi();
 const { locale } = useI18n();
 
@@ -9,7 +9,8 @@ const { data } = await storyblokApi.get('cdn/stories/config', {
   language: locale.value
 });
 
-const headerMenu = ref(data.story.content.header_menu);
+const menu = ref(data.story.content.menu);
+const actions = ref(data.story.content.actions);
 </script>
 
 <template>
@@ -26,13 +27,14 @@ const headerMenu = ref(data.story.content.header_menu);
         </NuxtLink>
       </Column>
       <Column class="header__column">
-        <nav v-if="headerMenu" class="header__nav">
+        <nav v-if="menu" class="header__nav">
           <ul class="header__menu">
-            <li v-for="blok in headerMenu" :key="blok._uid" class="header__link">
+            <li v-for="blok in menu" :key="blok._uid">
               <NuxtLink
+                class="header__link"
                 :to="
                   blok.link.cached_url.includes('index')
-                    ? blok.link.cached_url.replace('index', '/')
+                    ? blok.link.cached_url.replace('index', locale === 'en' ? '/' : '')
                     : blok.link.cached_url
                 "
               >
@@ -42,7 +44,23 @@ const headerMenu = ref(data.story.content.header_menu);
           </ul>
         </nav>
       </Column>
-      <Column :s="2" class="header__column"> Lang </Column>
+      <Column :s="2" class="header__column">
+        <ul class="header__menu">
+          <li v-for="blok in actions" :key="blok._uid">
+            <NuxtLink
+              class="header__link"
+              :target="blok.link.target"
+              :to="
+                blok.link.cached_url.includes('index')
+                  ? blok.link.cached_url.replace('index', locale === 'en' ? '/' : '')
+                  : blok.link.cached_url
+              "
+            >
+              <Button class="header__button" :outline="true" variant="basic">{{ blok.title }}</Button>
+            </NuxtLink>
+          </li>
+        </ul>
+      </Column>
     </Row>
   </Container>
 </template>
@@ -90,6 +108,39 @@ const headerMenu = ref(data.story.content.header_menu);
     display: flex;
     justify-content: center;
     list-style: none;
+  }
+
+  &__link {
+    color: var(--color-basic-brightest);
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    transition: color var(--transition-duration-normal);
+    max-width: 80%;
+    margin: 0 1rem;
+
+    &:hover {
+      color: var(--color-primary-brightest);
+    }
+
+    @media (--breakpoint-s) {
+      font-size: var(--font-size-l);
+      margin: 0 2rem;
+    }
+  }
+
+  &__button {
+    --pa-border-width-small: 3px;
+    --pa-button-radius: 100rem;
+
+    background-color: transparent;
+    color: var(--color-basic-brightest);
+    border-color: var(--color-basic-brightest);
+    transition: opacity var(--transition-duration-normal);
+
+    &:hover {
+      opacity: 0.9;
+    }
   }
 }
 </style>

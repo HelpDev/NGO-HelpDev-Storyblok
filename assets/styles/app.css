@@ -5,7 +5,7 @@
 html,
 body {
   font-family: var(--font-family);
-  font-size: 14px;
+  font-size: 15px;
   color: var(--color-basic-darkest);
   background-color: var(--color-basic-brightest);
 

@@ -40,12 +40,12 @@
   --border-radius-box: 1.5rem;
 
   /* Font */
-  --font-family: 'Noto Sans', system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', sans-serif;
   --font-family-heading: Outfit, system-ui, -apple-system, Georgia, serif;
 
   --font-size-s: 0.75rem;
   --font-size-m: 1rem;
-  --font-size-l: 1.2rem;
+  --font-size-l: 1.25rem;
   --font-size-xl: 1.6rem;
   --font-size-xxl: 3.25rem;
   --font-size-xxxl: 4.5rem;

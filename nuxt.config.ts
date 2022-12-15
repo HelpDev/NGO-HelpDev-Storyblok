@@ -30,9 +30,11 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       Outfit: {
-        wght: [300, 400, 700, 800]
+        wght: [300, 400, 500, 700, 800]
       },
-      'Noto+Sans': true
+      Montserrat: {
+        wght: [300, 400, 500, 700, 800]
+      }
     }
   },
   generate: {
