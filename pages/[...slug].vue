@@ -1,14 +1,15 @@
 <script setup>
+const storyblokApi = useStoryblokApi();
 const { slug } = useRoute().params;
 const { locale } = useI18n();
 
-const resolveRelations = [''];
+const resolveRelations = ['popular-articles.articles'];
 const url = slug && slug.length > 0 ? slug.join('/') : 'index';
 
 const { data } = await useAsyncData(
   `${locale.value}-${url}`,
   async () =>
-    await storyblokApiInstance.get(`cdn/stories/${url}`, {
+    await storyblokApi.get(`cdn/stories/${url}`, {
       version: 'draft',
       language: locale.value,
       resolve_relations: resolveRelations
