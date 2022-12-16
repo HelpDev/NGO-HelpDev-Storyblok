@@ -18,6 +18,8 @@ const { data } = await useAsyncData(
 
 const story = useState(`${locale.value}-${url}-story`, () => data.value.data.story);
 
+const pageName = ref(url);
+
 onMounted(() => {
   if (story.value && story.value.id) {
     useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
@@ -28,5 +30,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <StoryblokComponent v-if="story" :blok="story.content" />
+  <main :class="`page page--${pageName}`">
+    <StoryblokComponent v-if="story" :blok="story.content" />
+  </main>
 </template>
+
+<style scoped>
+.page {
+  padding-top: var(--header-height);
+
+  &--index {
+    padding-top: 0;
+  }
+}
+</style>
