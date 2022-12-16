@@ -6,5 +6,6 @@ import { Container } from '@papanasi/vue';
   <Container :fluid="true">
     <Header />
     <slot />
+    <Footer />
   </Container>
 </template>
