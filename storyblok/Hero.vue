@@ -34,14 +34,19 @@ defineProps({ blok: Object });
   overflow: hidden;
 
   &__container {
-    background-position: right top;
+    background-position: right center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     margin: 0 auto;
     height: var(--hero-height);
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media (--breakpoint-s) {
+      background-position: right top;
+      background-size: contain;
+    }
   }
 
   &__elements {
@@ -50,6 +55,12 @@ defineProps({ blok: Object });
     flex-direction: column;
     justify-content: center;
     height: calc(var(--hero-height) - var(--header-height));
+    backdrop-filter: blur(1px);
+    padding-bottom: 1rem;
+
+    @media (--breakpoint-l) {
+      backdrop-filter: none;
+    }
   }
 
   &__title {

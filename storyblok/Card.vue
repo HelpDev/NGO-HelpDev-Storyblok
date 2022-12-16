@@ -1,4 +1,6 @@
 <script setup>
+import { Button } from '@papanasi/vue';
+
 const props = defineProps({ blok: Object });
 
 const variantColors = {
@@ -54,6 +56,22 @@ const margin = image.value && side.value === 'left' ? `calc(50% + ${padding.valu
   <div class="card" :style="{ 'background-image': `url(${image})` }">
     <h3 class="card__title">{{ blok.title }}</h3>
     <p class="card__subtitle">{{ blok.subtitle }}</p>
+
+    <ul class="card__actions">
+      <li v-for="element in blok.actions" :key="element._uid">
+        <NuxtLink
+          class="card__link"
+          :target="element.link.target"
+          :to="
+            element.link.cached_url.includes('index')
+              ? element.link.cached_url.replace('index', locale === 'en' ? '/' : '')
+              : element.link.cached_url
+          "
+        >
+          <Button class="card__button" :variant="element.variant || 'basic'">{{ element.title }}</Button>
+        </NuxtLink>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -73,7 +91,7 @@ const margin = image.value && side.value === 'left' ? `calc(50% + ${padding.valu
   width: var(--width);
   padding: var(--padding);
   margin-top: 0.5rem;
-  height: 35rem;
+  min-height: 35rem;
   max-height: 30vmax;
   display: flex;
   flex-direction: column;
@@ -87,18 +105,53 @@ const margin = image.value && side.value === 'left' ? `calc(50% + ${padding.valu
   }
 
   &__title,
-  &__subtitle {
-    margin-left: v-bind(margin);
-    max-width: calc(50% - var(--padding));
+  &__subtitle,
+  &__actions {
+    backdrop-filter: blur(1px);
+
+    @media (--breakpoint-s) {
+      margin-left: v-bind(margin);
+      max-width: calc(50% - var(--padding));
+    }
   }
 
   &__title {
     font-family: var(--font-family-heading);
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 2rem;
 
     @media (--breakpoint-s) {
       font-size: var(--font-size-xxl);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 2rem;
+  }
+
+  &__link {
+    color: var(--color-basic-brightest);
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    transition: color var(--transition-duration-normal);
+    margin-right: 0.25rem;
+
+    &:hover {
+      color: var(--color-primary-brightest);
+    }
+
+    @media (--breakpoint-s) {
+      margin-right: 0.5rem;
     }
   }
 }
