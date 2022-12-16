@@ -25,5 +25,12 @@ defineProps({ blok: Object });
   @media (--breakpoint-m) {
     padding: 0;
   }
+
+  :deep(.card) {
+    --min-height: 35rem;
+    --max-height: 30vmax;
+    --margin: 0.5rem;
+    --full-width: calc(var(--width) - var(--margin) * 2);
+  }
 }
 </style>
