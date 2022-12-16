@@ -26,15 +26,36 @@ const iconTemplate = (icon) => {
         <Column class="footer__column" :basic="full" :s="8">
           <h4 class="footer__title">{{ title }}</h4>
           <h5 class="footer__subtitle">{{ subtitle }}</h5>
+
+          <ul class="footer__actions">
+            <li v-for="element in social" :key="element._uid">
+              <NuxtLink
+                class="footer__link"
+                :target="element.link.target"
+                :to="
+                  element.link.cached_url.includes('index')
+                    ? element.link.cached_url.replace('index', locale === 'en' ? '/' : '')
+                    : element.link.cached_url
+                "
+              >
+                <img
+                  class="footer__social"
+                  :src="iconTemplate(element.icon)"
+                  :alt="data.story.content.title"
+                  width="50"
+                />
+              </NuxtLink>
+            </li>
+          </ul>
         </Column>
 
         <Column class="footer__column" :basic="full" :s="4">
           <h4 class="footer__title footer__title--thanks">{{ thanks }}</h4>
           <NuxtLink to="https://helpdev.org" target="_blank">
-            <img class="footer__logo" src="~/assets/images/helpdev.png" :alt="data.story.content.title" width="200" />
+            <img class="footer__logo" src="~/assets/images/helpdev.png" :alt="data.story.content.title" width="150" />
           </NuxtLink>
           <NuxtLink to="https://www.storyblok.com/" target="_blank">
-            <img class="footer__logo" src="~/assets/images/storyblok.png" :alt="data.story.content.title" width="200" />
+            <img class="footer__logo" src="~/assets/images/storyblok.png" :alt="data.story.content.title" width="150" />
           </NuxtLink>
         </Column>
       </Row>
@@ -104,6 +125,38 @@ const iconTemplate = (icon) => {
 
     @media (--breakpoint-s) {
       max-width: 9rem;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 1rem;
+  }
+
+  &__link {
+    --size: 2rem;
+
+    background-color: var(--color-basic-brightest);
+    border-radius: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    height: var(--size);
+    width: var(--size);
+
+    @media (--breakpoint-s) {
+      --size: 2.25rem;
+    }
+  }
+
+  &__social {
+    max-width: 1rem;
+
+    @media (--breakpoint-s) {
+      max-width: 1.25rem;
     }
   }
 }
