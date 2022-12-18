@@ -56,7 +56,7 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
               v-for="language in otherLocales"
               :key="language.code"
               class="footer__language"
-              :to="switchLocalePath(language.code)"
+              :to="`/${language.code}`"
               @click="setLocale(language.code)"
               >{{ language.name }}</NuxtLink
             >
