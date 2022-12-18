@@ -2,7 +2,7 @@
 
 ## Websites
 - https://helpdev.org ~> Main Website of this repository
-- https://components.helpdev.org ~> Components used in this repository and across other Helpdev websites
+- https://github.com/HelpDev/NGO-HelpDev-Storyblok ~> Components used in this repository and across other Helpdev websites
 
 ## Configuration Steps
 
