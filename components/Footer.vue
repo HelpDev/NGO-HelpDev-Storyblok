@@ -146,9 +146,17 @@ const iconTemplate = (icon) => {
     align-content: center;
     height: var(--size);
     width: var(--size);
+    border: 2px solid var(--color-primary-normal);
+    transition: border-color var(--transition-duration-normal);
+    margin-right: 0.15rem;
 
     @media (--breakpoint-s) {
       --size: 2.25rem;
+      margin-right: 0.25rem;
+    }
+
+    &:hover {
+      border-color: var(--color-basic-brightest);
     }
   }
 
