@@ -1,7 +1,7 @@
 <script setup>
 import { Column, Container, Row } from '@papanasi/vue';
 const storyblokApi = useStoryblokApi();
-const { locale, locales } = useI18n();
+const { locale, locales, setLocale } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 
 const { data } = await storyblokApi.get('cdn/stories/config', {
@@ -52,12 +52,13 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
           </ul>
 
           <div class="footer__languages">
-            <nuxt-link
+            <NuxtLink
               v-for="language in otherLocales"
               :key="language.code"
               class="footer__language"
               :to="switchLocalePath(language.code)"
-              >{{ language.name }}</nuxt-link
+              @click="setLocale(language.code)"
+              >{{ language.name }}</NuxtLink
             >
           </div>
         </Column>
