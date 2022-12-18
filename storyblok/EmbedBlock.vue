@@ -1,9 +1,7 @@
 <script setup>
 import { Column, Container, Row, Spinner } from '@papanasi/vue';
 
-const props = defineProps({ blok: Object });
-
-const top = ref(`${(props.blok.height / props.blok.width) * 100}%`);
+defineProps({ blok: Object });
 </script>
 
 <template>
@@ -40,21 +38,29 @@ const top = ref(`${(props.blok.height / props.blok.width) * 100}%`);
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding-top: v-bind(top);
+    padding-top: 200%;
     position: relative;
     margin-bottom: 1rem;
+
+    @media (--breakpoint-s) {
+      padding-top: 100%;
+    }
   }
 
   &__frame {
     position: relative;
     z-index: 1;
     border: 0;
-    height: 100%;
+    height: 200%;
     left: 0;
     position: absolute;
     top: 0;
     width: 100%;
     overflow: hidden;
+
+    @media (--breakpoint-s) {
+      height: 100%;
+    }
   }
 
   &__spinner {

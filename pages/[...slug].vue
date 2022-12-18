@@ -37,7 +37,11 @@ onMounted(() => {
 
 <style scoped>
 .page {
-  padding-top: var(--header-height);
+  padding-top: var(--header-height-min);
+
+  @media (--breakpoint-s) {
+    padding-top: var(--header-height);
+  }
 
   &--index {
     padding-top: 0;

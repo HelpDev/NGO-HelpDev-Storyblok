@@ -62,6 +62,7 @@
   --transition-duration-slow: 600ms;
 
   /* Header */
+  --header-height-min: 8rem;
   --header-height: 8rem;
 }
 

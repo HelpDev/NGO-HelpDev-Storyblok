@@ -54,9 +54,13 @@ defineProps({ blok: Object });
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    height: calc(var(--hero-height) - var(--header-height));
+    height: calc(var(--hero-height) - var(--header-height-min));
     backdrop-filter: blur(1px);
     padding-bottom: 1rem;
+
+    @media (--breakpoint-s) {
+      height: calc(var(--hero-height) - var(--header-height));
+    }
 
     @media (--breakpoint-l) {
       backdrop-filter: none;

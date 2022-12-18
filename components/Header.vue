@@ -69,9 +69,10 @@ const actions = ref(data.story.content.actions);
 .header {
   position: absolute;
   top: 1rem;
-  height: var(--header-height);
+  height: var(--header-height-min);
 
   @media (--breakpoint-s) {
+    height: var(--header-height);
     top: 0;
   }
 
@@ -81,7 +82,11 @@ const actions = ref(data.story.content.actions);
     margin: 0 auto;
     max-width: var(--pa-grid-container-max-width);
     width: 90vw;
-    height: var(--header-height);
+    height: var(--header-height-min);
+
+    @media (--breakpoint-s) {
+      height: var(--header-height);
+    }
   }
 
   &__logo {
@@ -134,9 +139,15 @@ const actions = ref(data.story.content.actions);
     --pa-button-radius: 100rem;
 
     background-color: transparent;
+    font-size: var(--font-size-s);
+
     color: var(--color-basic-brightest);
     border-color: var(--color-basic-brightest);
     transition: opacity var(--transition-duration-normal);
+
+    @media (--breakpoint-s) {
+      font-size: var(--font-size-m);
+    }
 
     &:hover {
       opacity: 0.9;
