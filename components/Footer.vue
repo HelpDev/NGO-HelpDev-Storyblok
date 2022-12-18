@@ -15,6 +15,11 @@ const subtitle = ref(data.story.content.footer_subtitle);
 const thanks = ref(data.story.content.footer_thanks);
 const social = ref(data.story.content.social);
 
+function updateLocale(locale) {
+  setLocale(locale);
+  location.reload();
+}
+
 const iconTemplate = (icon) => {
   return `https://raw.githubusercontent.com/gilbarbara/logos/master/logos/${icon}.svg`;
 };
@@ -56,8 +61,8 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
               v-for="language in otherLocales"
               :key="language.code"
               class="footer__language"
-              :to="`/${language.code}`"
-              @click="setLocale(language.code)"
+              :to="switchLocalePath(language.code)"
+              @click="updateLocale(language.code)"
               >{{ language.name }}</NuxtLink
             >
           </div>
