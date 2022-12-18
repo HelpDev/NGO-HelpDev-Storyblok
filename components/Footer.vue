@@ -17,7 +17,9 @@ const social = ref(data.story.content.social);
 
 function updateLocale(locale) {
   setLocale(locale);
-  location.reload();
+
+  // SetLocale not working well in static apps
+  setTimeout(() => location.reload(), 10);
 }
 
 const iconTemplate = (icon) => {
