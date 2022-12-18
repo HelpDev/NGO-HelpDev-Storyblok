@@ -24,12 +24,3 @@ $ yarn dev
 # generate static project
 $ yarn generate
 ```
-
-## Tailwind
-
-You will find your tailwind config viewer at `http://localhost:3000/_tailwind/`
-
-# Inspiration
-
-- Vue Tailwind Components: https://www.vue-tailwind.com/
-- Tailwind UI: https://tailwindui.com/

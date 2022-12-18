@@ -1,0 +1,52 @@
+:root {
+  /* Color Basic */
+  --pa-color-basic-brightest: var(--color-basic-brightest);
+  --pa-color-basic-brighter: var(--color-basic-brighter);
+  --pa-color-basic-bright: var(--color-basic-bright);
+  --pa-color-basic-normal: var(--color-basic-normal);
+  --pa-color-basic-dark: var(--color-basic-dark);
+  --pa-color-basic-darker: var(--color-basic-darker);
+  --pa-color-basic-darkest: var(--color-basic-darkest);
+
+  /* Color Primary */
+  --pa-color-primary-brightest: var(--color-primary-brightest);
+  --pa-color-primary-brighter: var(--color-primary-brighter);
+  --pa-color-primary-bright: var(--color-primary-bright);
+  --pa-color-primary-normal: var(--color-primary-normal);
+  --pa-color-primary-dark: var(--color-primary-dark);
+  --pa-color-primary-darker: var(--color-primary-darker);
+  --pa-color-primary-darkest: var(--color-primary-darkest);
+
+  /* Color Secondary */
+  --pa-color-secondary-brightest: var(--color-secondary-brightest);
+  --pa-color-secondary-brighter: var(--color-secondary-brighter);
+  --pa-color-secondary-bright: var(--color-secondary-bright);
+  --pa-color-secondary-normal: var(--color-secondary-normal);
+  --pa-color-secondary-dark: var(--color-secondary-dark);
+  --pa-color-secondary-darker: var(--color-secondary-darker);
+  --pa-color-secondary-darkest: var(--color-secondary-darkest);
+
+  /* Breakpoints */
+  --pa-breakpoint-xxs: var(--breakpoint-xxs);
+  --pa-breakpoint-xs: var(--breakpoint-xs);
+  --pa-breakpoint-s: var(--breakpoint-s);
+  --pa-breakpoint-m: var(--breakpoint-m);
+  --pa-breakpoint-l: var(--breakpoint-l);
+  --pa-breakpoint-xl: var(--breakpoint-xl);
+  --pa-breakpoint-xxl: var(--breakpoint-xxl);
+
+  /* Border */
+  --pa-border-radius-small: var(--border-radius-small);
+  --pa-border-width-small: var(--border-width-small);
+
+  /* Font */
+  --pa-font-family: var(--font-family);
+
+  /* Transition */
+  --pa-transition-duration-fast: var(--transition-duration-fast);
+  --pa-transition-duration-normal: var(--transition-duration-normal);
+  --pa-transition-duration-slow: var(--transition-duration-slow);
+
+  /* Meanwhile papanasi v1.1.0 */
+  --pa-grid-container-max-width: var(--pa-grid-max-width);
+}

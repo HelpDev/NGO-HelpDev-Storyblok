@@ -1,0 +1,76 @@
+:root {
+  /* Color Basic */
+  --color-basic-brightest: #ffffff;
+  --color-basic-brighter: #f3f3f5;
+  --color-basic-bright: #d8dadf;
+  --color-basic-normal: #b3b5bb;
+  --color-basic-dark: #686c7c;
+  --color-basic-darker: #464b5f;
+  --color-basic-darkest: #101116;
+
+  /* Color Primary */
+  --color-primary-brightest: #ffd4b8;
+  --color-primary-brighter: #ffc8a3;
+  --color-primary-bright: #f88b42;
+  --color-primary-normal: #ff6600;
+  --color-primary-dark: #c75000;
+  --color-primary-darker: #8f3900;
+  --color-primary-darkest: #3f1900;
+
+  /* Color Secondary */
+  --color-secondary-brightest: #eeeaff;
+  --color-secondary-brighter: #cec1ff;
+  --color-secondary-bright: #ad99ff;
+  --color-secondary-normal: #6c47ff;
+  --color-secondary-dark: #3f0fff;
+  --color-secondary-darker: #2b00d6;
+  --color-secondary-darkest: #20009e;
+
+  /* Brakpoints */
+  --breakpoint-xxs: 400px;
+  --breakpoint-xs: 640px;
+  --breakpoint-s: 768px;
+  --breakpoint-m: 1024px;
+  --breakpoint-l: 1100px;
+  --breakpoint-xl: 1440px;
+  --breakpoint-xxl: 1920px;
+
+  /* Border */
+  --border-radius-small: 6px;
+  --border-radius-box: 1.5rem;
+
+  /* Font */
+  --font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-family-heading: Outfit, system-ui, -apple-system, Georgia, serif;
+
+  --font-size-s: 0.75rem;
+  --font-size-m: 1rem;
+  --font-size-l: 1.25rem;
+  --font-size-xl: 1.6rem;
+  --font-size-xxl: 3.25rem;
+  --font-size-xxxl: 4.5rem;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 800;
+
+  /* Transition */
+  --transition-duration-fast: 150ms;
+  --transition-duration-normal: 300ms;
+  --transition-duration-slow: 600ms;
+
+  /* Header */
+  --header-height-min: 8rem;
+  --header-height: 8rem;
+}
+
+/* Breakpoints Medias */
+@custom-media --breakpoint-xxs (min-width: 400px);
+@custom-media --breakpoint-xs (min-width: 640px);
+@custom-media --breakpoint-s (min-width: 768px);
+@custom-media --breakpoint-m (min-width: 1024px);
+@custom-media --breakpoint-l (min-width: 1280px);
+@custom-media --breakpoint-xl (min-width: 1440px);
+@custom-media --breakpoint-xxl (min-width: 1940px);
