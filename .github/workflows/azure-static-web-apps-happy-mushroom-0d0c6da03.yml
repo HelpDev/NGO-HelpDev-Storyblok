@@ -1,11 +1,11 @@
 name: Azure Static Web Apps CI/CD
 
-# on:
-#   release:
-#     types: [created]
+on:
+  release:
+    types: [created]
   
-#   repository_dispatch:
-#     types: [content]
+  repository_dispatch:
+    types: [content]
     
 env:
   NODE_VERSION: "14.x"
