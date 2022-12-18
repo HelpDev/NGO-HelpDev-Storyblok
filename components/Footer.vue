@@ -1,7 +1,8 @@
 <script setup>
 import { Column, Container, Row } from '@papanasi/vue';
 const storyblokApi = useStoryblokApi();
-const { locale } = useI18n();
+const { locale, locales } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
 
 const { data } = await storyblokApi.get('cdn/stories/config', {
   version: 'draft',
@@ -17,6 +18,8 @@ const social = ref(data.story.content.social);
 const iconTemplate = (icon) => {
   return `https://raw.githubusercontent.com/gilbarbara/logos/master/logos/${icon}.svg`;
 };
+
+const otherLocales = computed(() => locales.value.filter((x) => x.code !== locale.value));
 </script>
 
 <template>
@@ -47,6 +50,16 @@ const iconTemplate = (icon) => {
               </NuxtLink>
             </li>
           </ul>
+
+          <div class="footer__languages">
+            <nuxt-link
+              v-for="language in otherLocales"
+              :key="language.code"
+              class="footer__language"
+              :to="switchLocalePath(language.code)"
+              >{{ language.name }}</nuxt-link
+            >
+          </div>
         </Column>
 
         <Column class="footer__column" :basic="full" :s="4">
@@ -165,6 +178,23 @@ const iconTemplate = (icon) => {
 
     @media (--breakpoint-s) {
       max-width: 1.25rem;
+    }
+  }
+
+  &__languages {
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-bold);
+    padding-top: 0.75rem;
+  }
+
+  &__language {
+    color: var(--color-basic-brightest);
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--transition-duration-normal);
+    margin-right: 0.25rem;
+
+    &:hover {
+      border-bottom-color: var(--color-basic-brightest);
     }
   }
 }

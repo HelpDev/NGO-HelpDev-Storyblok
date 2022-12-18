@@ -54,7 +54,7 @@ defineProps({ blok: Object });
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    height: calc(var(--hero-height) - var(--header-height) * 2);
+    height: calc(var(--hero-height) - var(--header-height));
     backdrop-filter: blur(1px);
     padding-bottom: 1rem;
 

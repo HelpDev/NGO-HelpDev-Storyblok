@@ -24,8 +24,22 @@ export default defineNuxtConfig({
   },
   i18n: {
     strategy: 'prefix_except_default',
-    locales: ['en', 'es'],
-    defaultLocale: 'en'
+    locales: [
+      {
+        code: 'en',
+        name: 'English'
+      },
+      {
+        code: 'es',
+        name: 'Español'
+      }
+    ],
+    defaultLocale: 'en',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    }
   },
   googleFonts: {
     families: {
