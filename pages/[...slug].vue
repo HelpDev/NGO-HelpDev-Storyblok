@@ -10,7 +10,7 @@ const { data } = await useAsyncData(
   `${locale.value}-${url}`,
   async () =>
     await storyblokApi.get(`cdn/stories/${url}`, {
-      version: 'draft',
+      version: 'published',
       language: locale.value,
       resolve_relations: resolveRelations
     })

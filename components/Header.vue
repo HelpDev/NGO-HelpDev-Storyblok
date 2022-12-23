@@ -4,9 +4,17 @@ const storyblokApi = useStoryblokApi();
 const { locale } = useI18n();
 
 const { data } = await storyblokApi.get('cdn/stories/config', {
-  version: 'draft',
+  version: 'published',
   resolve_links: 'url',
   language: locale.value
+});
+
+useHead({
+  htmlAttrs: {
+    lang: locale.value
+  },
+  title: data.story.content.title,
+  meta: [{ name: 'description', content: data.story.content.description }]
 });
 
 const menu = ref(data.story.content.menu);
@@ -23,6 +31,7 @@ const actions = ref(data.story.content.actions);
             src="~/assets/images/logo_landscape_white.png"
             :alt="data.story.content.title"
             width="200"
+            height="30"
           />
         </NuxtLink>
       </Column>

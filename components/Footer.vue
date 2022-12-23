@@ -5,7 +5,7 @@ const { locale, locales, setLocale } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 
 const { data } = await storyblokApi.get('cdn/stories/config', {
-  version: 'draft',
+  version: 'published',
   resolve_links: 'url',
   language: locale.value
 });
@@ -53,6 +53,7 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
                   :src="iconTemplate(element.icon)"
                   :alt="data.story.content.title"
                   width="50"
+                  height="26"
                 />
               </NuxtLink>
             </li>
@@ -73,10 +74,22 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
         <Column class="footer__column" :basic="full" :s="4">
           <h4 class="footer__title footer__title--thanks">{{ thanks }}</h4>
           <NuxtLink to="https://helpdev.org" target="_blank">
-            <img class="footer__logo" src="~/assets/images/helpdev.png" :alt="data.story.content.title" width="150" />
+            <img
+              class="footer__logo"
+              src="~/assets/images/helpdev.png"
+              :alt="data.story.content.title"
+              width="150"
+              height="25.315"
+            />
           </NuxtLink>
           <NuxtLink to="https://www.storyblok.com/" target="_blank">
-            <img class="footer__logo" src="~/assets/images/storyblok.png" :alt="data.story.content.title" width="150" />
+            <img
+              class="footer__logo"
+              src="~/assets/images/storyblok.png"
+              :alt="data.story.content.title"
+              width="150"
+              height="25.315"
+            />
           </NuxtLink>
         </Column>
       </Row>
@@ -143,6 +156,7 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
 
   &__logo {
     max-width: 6rem;
+    height: auto;
 
     @media (--breakpoint-s) {
       max-width: 9rem;
