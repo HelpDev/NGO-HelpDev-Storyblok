@@ -43,6 +43,7 @@ const foreground = ref(variantColors[props.blok.variant].foreground);
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0;
 
   @media (--breakpoint-m) {
     flex-direction: var(--direction);
