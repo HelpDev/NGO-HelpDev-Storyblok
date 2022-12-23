@@ -24,3 +24,7 @@ body {
   color: var(--color-primary-darkest);
   background: var(--color-primary-brightest);
 }
+
+hr {
+  opacity: 0;
+}
