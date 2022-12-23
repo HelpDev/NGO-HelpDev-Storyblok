@@ -100,6 +100,7 @@ const actions = ref(data.story.content.actions);
 
   &__logo {
     max-width: 8rem;
+    height: auto;
 
     @media (--breakpoint-s) {
       max-width: 13rem;

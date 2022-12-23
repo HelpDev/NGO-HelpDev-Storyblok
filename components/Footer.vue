@@ -197,6 +197,7 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
 
   &__social {
     max-width: 1rem;
+    height: auto;
 
     @media (--breakpoint-s) {
       max-width: 1.25rem;
