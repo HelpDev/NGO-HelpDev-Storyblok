@@ -14,7 +14,7 @@ defineProps({ blok: Object });
 
 <style scoped>
 .cards {
-  margin: 2rem auto;
+  margin: 1rem auto;
 
   &__row {
     justify-content: center;
