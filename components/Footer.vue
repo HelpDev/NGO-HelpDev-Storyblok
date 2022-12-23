@@ -101,6 +101,7 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
 .footer {
   background-color: var(--color-primary-normal);
   padding: 0 1rem 1.25rem 1rem;
+  margin-top: 3vw;
 
   &__container {
     color: var(--color-basic-brightest);
