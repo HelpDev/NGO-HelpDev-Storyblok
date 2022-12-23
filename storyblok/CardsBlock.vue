@@ -14,12 +14,12 @@ defineProps({ blok: Object });
 
 <style scoped>
 .cards {
-  margin: 1rem auto;
+  margin: 0 auto;
 
   &__row {
     justify-content: center;
     flex-wrap: wrap;
-    padding: 2vw;
+    padding: 1vw;
   }
 
   @media (--breakpoint-m) {

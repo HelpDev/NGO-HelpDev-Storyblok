@@ -32,6 +32,7 @@ defineProps({ blok: Object });
   background-image: linear-gradient(180deg, var(--background-from) 10%, var(--background-to) 100%);
   height: var(--hero-height);
   overflow: hidden;
+  margin-bottom: 1vw;
 
   &__container {
     background-position: right center;
