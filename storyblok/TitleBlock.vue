@@ -26,8 +26,8 @@ const foreground = ref(variantColors[props.blok.variant].foreground);
 
 <template>
   <Container class="title">
-    <h2 class="title__main">{{ blok.title }}</h2>
-    <p class="title__subtitle" v-html="richtext"></p>
+    <h2 v-if="blok.title" class="title__main">{{ blok.title }}</h2>
+    <p v-if="blok.subtitle.length" class="title__subtitle" v-html="richtext"></p>
   </Container>
 </template>
 

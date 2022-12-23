@@ -5,6 +5,10 @@ const storyblokApi = useStoryblokApi();
 const props = defineProps({ blok: Object });
 
 const variantColors = {
+  transparent: {
+    background: 'transparent',
+    foreground: 'var(--color-basic-darkest)'
+  },
   basic: {
     background: 'var(--color-basic-brighter)',
     foreground: 'var(--color-basic-darkest)'
@@ -25,6 +29,10 @@ const variantColors = {
 
 const sizes = {
   1: {
+    width: '100%',
+    padding: '6%'
+  },
+  2: {
     width: '100%',
     padding: '6%'
   },
@@ -55,6 +63,7 @@ const align = ref(
 );
 const margin = image.value && side.value === 'left' ? `calc(50% + ${padding.value})` : '0';
 const textWidth = ref(!image.value && props.blok.size !== '1' ? '100%' : '50%');
+const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
 </script>
 
 <template>
@@ -89,7 +98,7 @@ const textWidth = ref(!image.value && props.blok.size !== '1' ? '100%' : '50%');
   --background: v-bind(background);
   --foreground: v-bind(foreground);
   --min-height: 20rem;
-  --max-height: 20vmax;
+  --max-height: v-bind(maxHeight);
   --text-width: v-bind(textWidth);
 
   background-color: var(--background);
