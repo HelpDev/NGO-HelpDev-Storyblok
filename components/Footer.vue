@@ -5,7 +5,7 @@ const { locale, locales, setLocale } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 
 const { data } = await storyblokApi.get('cdn/stories/config', {
-  version: 'published',
+  version: 'draft',
   resolve_links: 'url',
   language: locale.value
 });

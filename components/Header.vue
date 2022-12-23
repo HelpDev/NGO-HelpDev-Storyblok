@@ -4,7 +4,7 @@ const storyblokApi = useStoryblokApi();
 const { locale } = useI18n();
 
 const { data } = await storyblokApi.get('cdn/stories/config', {
-  version: 'published',
+  version: 'draft',
   resolve_links: 'url',
   language: locale.value
 });
