@@ -191,7 +191,9 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
       margin-right: 0.25rem;
     }
 
-    &:hover {
+    &:hover,
+    &:active {
+      text-decoration: none;
       border-color: var(--color-basic-brightest);
     }
   }
