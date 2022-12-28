@@ -41,6 +41,7 @@ const actions = ref(data.story.content.actions);
             <li v-for="blok in menu" :key="blok._uid">
               <NuxtLink
                 class="header__link"
+                :target="blok.link.target"
                 :to="
                   blok.link.cached_url.includes('index')
                     ? blok.link.cached_url.replace('index', locale === 'en' ? '/' : '')

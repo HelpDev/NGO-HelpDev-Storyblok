@@ -28,3 +28,16 @@ body {
 hr {
   opacity: 0;
 }
+
+a,
+a:active,
+a:visited,
+a:hover {
+  color: var(--color-primary-normal);
+  text-decoration: none;
+}
+
+a:active,
+a:hover {
+  text-decoration: underline;
+}
