@@ -44,8 +44,16 @@ const sizes = {
     width: '33.333333%',
     padding: '3%'
   },
+  '2/3': {
+    width: '66.666666%',
+    padding: '3%'
+  },
   '1/4': {
     width: '25%',
+    padding: '3%'
+  },
+  '3/4': {
+    width: '75%',
     padding: '3%'
   }
 };
