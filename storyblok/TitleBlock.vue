@@ -5,6 +5,9 @@ const storyblokApi = useStoryblokApi();
 const props = defineProps({ blok: Object });
 
 const variantColors = {
+  transparent: {
+    foreground: 'transparent'
+  },
   basic: {
     foreground: 'var(--color-basic-darkest)'
   },
