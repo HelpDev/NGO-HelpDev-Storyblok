@@ -1,69 +1,16 @@
 <script setup>
 import { Button } from '@papanasi/vue';
+import { CardSize, CardVariant } from '~/helpers';
 const storyblokApi = useStoryblokApi();
 
 const props = defineProps({ blok: Object });
 
-const variantColors = {
-  transparent: {
-    background: 'transparent',
-    foreground: 'var(--color-basic-darkest)'
-  },
-  basic: {
-    background: 'var(--color-basic-brighter)',
-    foreground: 'var(--color-basic-darkest)'
-  },
-  primary: {
-    background: 'var(--color-primary-bright)',
-    foreground: 'var(--color-primary-darkest)'
-  },
-  secondary: {
-    background: 'var(--color-secondary-bright)',
-    foreground: 'var(--color-secondary-darkest)'
-  },
-  tertiary: {
-    background: 'var(--color-tertiary-bright)',
-    foreground: 'var(--color-tertiary-darkest)'
-  }
-};
-
-const sizes = {
-  1: {
-    width: '100%',
-    padding: '6%'
-  },
-  2: {
-    width: '100%',
-    padding: '6%'
-  },
-  '1/2': {
-    width: '50%',
-    padding: '4%'
-  },
-  '1/3': {
-    width: '33.333333%',
-    padding: '3%'
-  },
-  '2/3': {
-    width: '66.666666%',
-    padding: '3%'
-  },
-  '1/4': {
-    width: '25%',
-    padding: '3%'
-  },
-  '3/4': {
-    width: '75%',
-    padding: '3%'
-  }
-};
-
 const richtext = ref(storyblokApi.richTextResolver.render(props.blok.subtitle));
-const width = ref(sizes[props.blok.size].width);
+const width = ref(CardSize[props.blok.size].width);
 const image = ref(props.blok?.image?.filename);
-const padding = ref(sizes[props.blok.size].padding);
-const background = ref(variantColors[props.blok.variant].background);
-const foreground = ref(variantColors[props.blok.variant].foreground);
+const padding = ref(CardSize[props.blok.size].padding);
+const background = ref(CardVariant[props.blok.variant].background);
+const foreground = ref(CardVariant[props.blok.variant].foreground);
 const side = ref(props.blok.image_side);
 const size = ref(side.value === 'center' ? 'cover' : '50%');
 const align = ref(

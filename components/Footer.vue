@@ -219,7 +219,9 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
     transition: border-color var(--transition-duration-normal);
     margin-right: 0.25rem;
 
-    &:hover {
+    &:hover,
+    &:active {
+      text-decoration: none;
       border-bottom-color: var(--color-basic-brightest);
     }
   }
