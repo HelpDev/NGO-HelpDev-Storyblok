@@ -24,30 +24,30 @@ export const CardVariant = {
 export const CardSize = {
   1: {
     width: '100%',
-    padding: '6%'
+    padding: '6vw'
   },
   2: {
     width: '100%',
-    padding: '6%'
+    padding: '6vw'
   },
   '1/2': {
     width: '50%',
-    padding: '4%'
+    padding: '4vw'
   },
   '1/3': {
     width: '33.333333%',
-    padding: '3%'
+    padding: '3vw'
   },
   '2/3': {
     width: '66.666666%',
-    padding: '3%'
+    padding: '3vw'
   },
   '1/4': {
     width: '25%',
-    padding: '3%'
+    padding: '3vw'
   },
   '3/4': {
     width: '75%',
-    padding: '3%'
+    padding: '3vw'
   }
 };

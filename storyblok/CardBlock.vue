@@ -12,17 +12,23 @@ const padding = ref(CardSize[props.blok.size].padding);
 const background = ref(CardVariant[props.blok.variant].background);
 const foreground = ref(CardVariant[props.blok.variant].foreground);
 const side = ref(props.blok.image_side);
+const isVertical = ref(side.value === 'top');
 const size = ref(side.value === 'center' ? 'cover' : '50%');
 const align = ref(
-  image.value && side.value !== 'center' ? 'flex-start' : props.blok.size !== '1' ? 'flex-start' : 'center'
+  image.value && side.value !== 'center' && !isVertical.value
+    ? 'flex-start'
+    : props.blok.size !== '1'
+    ? 'flex-start'
+    : 'center'
 );
 const margin = image.value && side.value === 'left' ? `calc(50% + ${padding.value})` : '0';
-const textWidth = ref(!image.value && props.blok.size !== '1' ? '100%' : '50%');
+const textWidth = ref((isVertical.value || !image.value) && props.blok.size !== '1' ? '100%' : '50%');
 const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
 </script>
 
 <template>
-  <div class="card" :style="{ 'background-image': `url(${image})` }">
+  <div class="card" :style="{ 'background-image': isVertical ? 'none' : `url(${image})` }">
+    <div v-if="isVertical" :style="{ 'background-image': `url(${image})` }" class="card__thumbnail"></div>
     <h3 class="card__title">{{ blok.title }}</h3>
     <p class="card__subtitle" v-html="richtext"></p>
 
@@ -74,6 +80,15 @@ const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
   @media (--breakpoint-m) {
     width: var(--full-width);
     margin-right: var(--margin);
+  }
+
+  &__thumbnail {
+    width: calc(100% + calc(2 * var(--padding)));
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    transform: translate(calc(-1 * var(--padding)), calc(-1 * var(--padding)));
   }
 
   &__title,
