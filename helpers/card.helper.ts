@@ -51,3 +51,41 @@ export const CardSize = {
     padding: '3vw'
   }
 };
+
+export const CardImageSide = {
+  left: {
+    direction: 'row',
+    justify: 'space-between',
+    align: 'center',
+    height: '100%',
+    width: '50%'
+  },
+  right: {
+    direction: 'row-reverse',
+    justify: 'space-between',
+    align: 'center',
+    height: '100%',
+    width: '50%'
+  },
+  top: {
+    direction: 'column',
+    justify: 'space-between',
+    align: 'center',
+    height: '50%',
+    width: '100%'
+  },
+  bottom: {
+    direction: 'column-reverse',
+    justify: 'space-between',
+    align: 'center',
+    height: '50%',
+    width: '100%'
+  },
+  center: {
+    direction: 'column',
+    justify: 'center',
+    align: 'center',
+    height: '100%',
+    width: '100%'
+  }
+};

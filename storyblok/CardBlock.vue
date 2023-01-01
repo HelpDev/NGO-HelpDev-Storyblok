@@ -1,6 +1,6 @@
 <script setup>
 import { Button } from '@papanasi/vue';
-import { CardSize, CardVariant } from '~/helpers';
+import { CardImageSide, CardSize, CardVariant } from '~/helpers';
 const storyblokApi = useStoryblokApi();
 
 const props = defineProps({ blok: Object });
@@ -11,42 +11,38 @@ const image = ref(props.blok?.image?.filename);
 const padding = ref(CardSize[props.blok.size].padding);
 const background = ref(CardVariant[props.blok.variant].background);
 const foreground = ref(CardVariant[props.blok.variant].foreground);
-const side = ref(props.blok.image_side);
-const isVertical = ref(side.value === 'top');
-const size = ref(side.value === 'center' ? 'cover' : '50%');
-const align = ref(
-  image.value && side.value !== 'center' && !isVertical.value
-    ? 'flex-start'
-    : props.blok.size !== '1'
-    ? 'flex-start'
-    : 'center'
-);
-const margin = image.value && side.value === 'left' ? `calc(50% + ${padding.value})` : '0';
-const textWidth = ref((isVertical.value || !image.value) && props.blok.size !== '1' ? '100%' : '50%');
+const direction = ref(CardImageSide[props.blok.image_side].direction);
+const imageWidth = ref(CardImageSide[props.blok.image_side].width);
+const imageHeight = ref(CardImageSide[props.blok.image_side].height);
+const justify = ref(CardImageSide[props.blok.image_side].justify);
+const align = ref(CardImageSide[props.blok.image_side].align);
+const position = ref(props.blok.image_side === 'center' ? 'absolute' : 'initial');
 const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
 </script>
 
 <template>
-  <div class="card" :style="{ 'background-image': isVertical ? 'none' : `url(${image})` }">
-    <div v-if="isVertical" :style="{ 'background-image': `url(${image})` }" class="card__thumbnail"></div>
-    <h3 class="card__title">{{ blok.title }}</h3>
-    <p class="card__subtitle" v-html="richtext"></p>
+  <div class="card">
+    <div :style="{ 'background-image': `url(${image})` }" class="card__thumbnail"></div>
+    <div class="card__info">
+      <h3 class="card__title">{{ blok.title }}</h3>
+      <p class="card__subtitle" v-html="richtext"></p>
 
-    <ul class="card__actions">
-      <li v-for="element in blok.actions" :key="element._uid">
-        <NuxtLink
-          class="card__link"
-          :target="element.link.target"
-          :to="
-            element.link.cached_url.includes('index')
-              ? element.link.cached_url.replace('index', locale === 'en' ? '/' : '')
-              : element.link.cached_url
-          "
-        >
-          <Button class="card__button" :variant="element.variant || 'basic'">{{ element.title }}</Button>
-        </NuxtLink>
-      </li>
-    </ul>
+      <ul class="card__actions">
+        <li v-for="element in blok.actions" :key="element._uid">
+          <NuxtLink
+            class="card__link"
+            :target="element.link.target"
+            :to="
+              element.link.cached_url.includes('index')
+                ? element.link.cached_url.replace('index', locale === 'en' ? '/' : '')
+                : element.link.cached_url
+            "
+          >
+            <Button class="card__button" :variant="element.variant || 'basic'">{{ element.title }}</Button>
+          </NuxtLink>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -60,46 +56,62 @@ const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
   --foreground: v-bind(foreground);
   --min-height: 20rem;
   --max-height: v-bind(maxHeight);
-  --text-width: v-bind(textWidth);
+  --image-width: v-bind(imageWidth);
+  --image-height: v-bind(imageHeight);
 
   background-color: var(--background);
   background-position: center v-bind(side);
-  background-size: v-bind(size);
+  background-size: cover;
   background-repeat: no-repeat;
   color: var(--foreground);
   width: 100%;
-  padding: var(--padding);
   margin-top: 0.5rem;
   min-height: var(--min-height);
   max-height: var(--max-height);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: v-bind(align);
+  align-items: center;
+  position: relative;
 
   @media (--breakpoint-m) {
     width: var(--full-width);
     margin-right: var(--margin);
+    flex-direction: v-bind(direction);
+    justify-content: v-bind(justify);
+    align-items: v-bind(align);
+  }
+
+  &__info,
+  &__thumbnail {
+    height: 50%;
+    width: 100%;
+    position: v-bind(position);
+
+    @media (--breakpoint-m) {
+      height: var(--image-height);
+      width: var(--image-width);
+    }
   }
 
   &__thumbnail {
-    width: calc(100% + calc(2 * var(--padding)));
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
-    transform: translate(calc(-1 * var(--padding)), calc(-1 * var(--padding)));
+  }
+
+  &__info {
+    padding: var(--padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   }
 
   &__title,
   &__subtitle,
   &__actions {
     backdrop-filter: blur(1px);
-
-    @media (--breakpoint-s) {
-      margin-left: v-bind(margin);
-      max-width: calc(var(--text-width) - var(--padding));
-    }
   }
 
   &__title {
