@@ -1,7 +1,10 @@
 <script setup>
 import { Button, Column, Container, Row } from '@papanasi/vue';
+import { useSettingsStore } from '~/stores';
+
 const storyblokApi = useStoryblokApi();
 const { locale } = useI18n();
+const store = useSettingsStore();
 
 const { data } = await storyblokApi.get('cdn/stories/config', {
   version: 'draft',
@@ -9,16 +12,18 @@ const { data } = await storyblokApi.get('cdn/stories/config', {
   language: locale.value
 });
 
+store.update(data.story.content);
+
 useHead({
   htmlAttrs: {
     lang: locale.value
   },
-  title: data.story.content.title,
-  meta: [{ name: 'description', content: data.story.content.description }]
+  title: store.title,
+  meta: [{ name: 'description', content: store.description }]
 });
 
-const menu = ref(data.story.content.menu);
-const actions = ref(data.story.content.actions);
+const menu = ref(store.menu);
+const actions = ref(store.actions);
 </script>
 
 <template>

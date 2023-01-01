@@ -1,19 +1,15 @@
 <script setup>
 import { Column, Container, Row } from '@papanasi/vue';
-const storyblokApi = useStoryblokApi();
+import { useSettingsStore } from '~/stores';
+
 const { locale, locales, setLocale } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
+const store = useSettingsStore();
 
-const { data } = await storyblokApi.get('cdn/stories/config', {
-  version: 'draft',
-  resolve_links: 'url',
-  language: locale.value
-});
-
-const title = ref(data.story.content.footer_title);
-const subtitle = ref(data.story.content.footer_subtitle);
-const thanks = ref(data.story.content.footer_thanks);
-const social = ref(data.story.content.social);
+const title = ref(store.footer_title);
+const subtitle = ref(store.footer_subtitle);
+const thanks = ref(store.footer_thanks);
+const social = reactive(store.social);
 
 function updateLocale(locale) {
   setLocale(locale);
@@ -51,7 +47,7 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
                 <img
                   class="footer__social"
                   :src="iconTemplate(element.icon)"
-                  :alt="data.story.content.title"
+                  :alt="store.title"
                   width="50"
                   height="26"
                 />
@@ -77,7 +73,7 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
             <img
               class="footer__logo"
               src="~/assets/images/helpdev.png"
-              :alt="data.story.content.title"
+              :alt="store.title"
               width="150"
               height="25.315"
             />
@@ -86,7 +82,7 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
             <img
               class="footer__logo"
               src="~/assets/images/storyblok.png"
-              :alt="data.story.content.title"
+              :alt="store.title"
               width="150"
               height="25.315"
             />

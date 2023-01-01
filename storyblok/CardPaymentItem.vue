@@ -1,14 +1,9 @@
 <script setup>
 import { Button } from '@papanasi/vue';
 import { StripeCheckout } from '@vue-stripe/vue-stripe';
+import { useSettingsStore } from '~/stores';
 
-const storyblokApi = useStoryblokApi();
-
-// Move to global store
-const { data } = await storyblokApi.get('cdn/stories/config', {
-  version: 'draft',
-  resolve_links: 'url'
-});
+const store = useSettingsStore();
 
 const props = defineProps({ blok: Object });
 
@@ -16,7 +11,7 @@ const checkoutRef = ref();
 const isSubscription = ref(props.blok.mode === 'subscription');
 const id = ref(isSubscription.value ? props.blok.id_subscription : props.blok.id);
 const items = [{ price: id.value, quantity: 1 }];
-const publishableKey = ref(data.story.content.stripe_key);
+const publishableKey = ref(store.stripe_key);
 
 const successURL = ref(`${window.location.protocol}//${window.location.host}/success`);
 const cancelURL = ref(`${window.location.protocol}//${window.location.host}/error`);
