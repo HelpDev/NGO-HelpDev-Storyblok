@@ -5,17 +5,22 @@ const storyblokApi = useStoryblokApi();
 
 const props = defineProps({ blok: Object });
 
+const cardSize = CardSize[props.blok.size];
+const cardVariant = CardVariant[props.blok.variant];
+const cardImageSide = CardImageSide[props.blok.image_side];
+
 const richtext = ref(storyblokApi.richTextResolver.render(props.blok.subtitle));
-const width = ref(CardSize[props.blok.size].width);
+const width = ref(cardSize.width);
 const image = ref(props.blok?.image?.filename);
-const padding = ref(CardSize[props.blok.size].padding);
-const background = ref(CardVariant[props.blok.variant].background);
-const foreground = ref(CardVariant[props.blok.variant].foreground);
-const direction = ref(CardImageSide[props.blok.image_side].direction);
-const imageWidth = ref(CardImageSide[props.blok.image_side].width);
-const imageHeight = ref(CardImageSide[props.blok.image_side].height);
-const justify = ref(CardImageSide[props.blok.image_side].justify);
-const align = ref(CardImageSide[props.blok.image_side].align);
+const imageDisplay = ref(image.value ? 'block' : 'none');
+const padding = ref(cardSize.padding);
+const background = ref(cardVariant.background);
+const foreground = ref(cardVariant.foreground);
+const direction = ref(image.value ? cardImageSide.direction : 'row');
+const imageWidth = ref(image.value ? cardImageSide.width : '100%');
+const imageHeight = ref(image.value ? cardImageSide.height : '0%');
+const justify = ref(image.value ? cardImageSide.justify : 'flex-start');
+const align = ref(image.value ? cardImageSide.align : 'center');
 const position = ref(props.blok.image_side === 'center' ? 'absolute' : 'initial');
 const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
 </script>
@@ -98,6 +103,7 @@ const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: v-bind(imageDisplay);
   }
 
   &__info {
@@ -106,6 +112,14 @@ const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    :deep(ul) {
+      padding: 0;
+    }
+
+    :deep(p) {
+      margin-bottom: 1rem;
+    }
   }
 
   &__title,
