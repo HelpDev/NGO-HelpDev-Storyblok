@@ -1,5 +1,6 @@
 <script setup>
 import { Button } from '@papanasi/vue';
+import { StripeCheckout } from '@vue-stripe/vue-stripe';
 import { useSettingsStore } from '~/stores';
 
 const store = useSettingsStore();
@@ -40,10 +41,10 @@ setValues();
 </script>
 
 <template>
-  <div v-show="!isSubscription && id" class="item">
+  <div :class="`item ${!isSubscription && id ? 'is-visible' : ''}`">
     <stripe-checkout
       ref="checkoutRef"
-      :mode="blok.mode"
+      mode="payment"
       :pk="publishableKey"
       :line-items="items"
       :success-url="successURL"
@@ -53,10 +54,10 @@ setValues();
     <Button :variant="blok.variant || 'basic'" @click="submit">{{ title }}</Button>
   </div>
 
-  <div v-show="isSubscription && idSubscription" class="item">
+  <div :class="`item ${isSubscription && idSubscription ? 'is-visible' : ''}`">
     <stripe-checkout
       ref="checkoutSubscriptionRef"
-      :mode="blok.mode"
+      mode="subscription"
       :pk="publishableKey"
       :line-items="itemsSubscription"
       :success-url="successURL"
@@ -71,5 +72,10 @@ setValues();
 .item {
   margin-top: 1rem;
   margin-right: 1rem;
+  display: none;
+
+  &.is-visible {
+    display: block;
+  }
 }
 </style>
