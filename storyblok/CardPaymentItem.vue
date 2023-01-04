@@ -40,5 +40,6 @@ function submit() {
 
 <style scoped>
 .item {
+  margin-top: 1rem;
 }
 </style>
