@@ -1,6 +1,8 @@
 <script setup>
 import { CardSize, CardVariant } from '~/helpers';
 const storyblokApi = useStoryblokApi();
+import { Vue3ToggleButton } from 'vue3-toggle-button';
+import '../node_modules/vue3-toggle-button/dist/style.css'; // TODO: move to global css
 
 const props = defineProps({ blok: Object });
 
@@ -10,7 +12,18 @@ const padding = ref(CardSize[props.blok.size].padding);
 const background = ref(CardVariant[props.blok.variant].background);
 const foreground = ref(CardVariant[props.blok.variant].foreground);
 const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
-const mode = ref('subscription');
+const isMonth = ref(true);
+const mode = ref(null);
+
+function setMode() {
+  mode.value = isMonth.value ? 'subscription' : 'payment';
+}
+
+watch([() => isMonth.value], () => {
+  setMode();
+});
+
+setMode();
 </script>
 
 <template>
@@ -18,13 +31,19 @@ const mode = ref('subscription');
     <h3 class="card__title">{{ blok.title }}</h3>
     <p class="card__subtitle" v-html="richtext"></p>
 
-    {{ blok.onetime_check_title }} [x] {{ blok.month_check_title }}
+    <div class="card__toggle">
+      {{ blok.onetime_check_title }}
+      <Vue3ToggleButton v-model:isActive="isMonth" :handle-color="'#cc00cc'"> </Vue3ToggleButton>
+      {{ blok.month_check_title }}
+    </div>
 
-    <StoryblokComponent
-      v-for="item in blok.items"
-      :key="item._uid"
-      :blok="{ ...item, mode, month_button: blok.month_button }"
-    />
+    <div class="card__actions">
+      <StoryblokComponent
+        v-for="item in blok.items"
+        :key="item._uid"
+        :blok="{ ...item, mode, month_button: blok.month_button }"
+      />
+    </div>
   </div>
 </template>
 
@@ -67,6 +86,12 @@ const mode = ref('subscription');
     @media (--breakpoint-s) {
       font-size: var(--font-size-xxl);
     }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
   }
 }
 </style>
