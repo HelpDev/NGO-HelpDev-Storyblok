@@ -31,18 +31,25 @@ setMode();
     <h3 class="card__title">{{ blok.title }}</h3>
     <p class="card__subtitle" v-html="richtext"></p>
 
-    <div class="card__toggle">
-      {{ blok.onetime_check_title }}
-      <Vue3ToggleButton v-model:isActive="isMonth" :handle-color="'#cc00cc'"> </Vue3ToggleButton>
-      {{ blok.month_check_title }}
-    </div>
-
     <div class="card__actions">
       <StoryblokComponent
         v-for="item in blok.items"
         :key="item._uid"
         :blok="{ ...item, mode, month_button: blok.month_button }"
       />
+    </div>
+
+    <div class="card__toggle">
+      {{ blok.onetime_check_title }}
+      <Vue3ToggleButton
+        v-model:isActive="isMonth"
+        track-height="16px"
+        handle-diameter="16px"
+        handle-distance="18px"
+        track-width="32px"
+        track-border-radius="16px"
+      />
+      {{ blok.month_check_title }}
     </div>
   </div>
 </template>
@@ -92,6 +99,38 @@ setMode();
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+  }
+
+  &__toggle {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: var(--font-size-s);
+    align-items: center;
+
+    :deep(.track) {
+      background-color: var(--color-basic-bright);
+      border-color: var(--color-basic-bright);
+    }
+
+    :deep(.handle) {
+      margin-left: -2px;
+      background-color: var(--color-basic-normal);
+    }
+
+    :deep(.switch) {
+      margin-right: 0.25rem;
+    }
+
+    :deep(input:checked ~ .track) {
+      background-color: var(--color-primary-brightest);
+      border-color: var(--color-primary-brightest);
+    }
+
+    :deep(input:checked ~ .track .handle) {
+      background-color: var(--color-primary-normal);
+    }
   }
 }
 </style>
