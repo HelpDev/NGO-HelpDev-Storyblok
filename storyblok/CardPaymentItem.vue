@@ -10,11 +10,8 @@ const props = defineProps({ blok: Object });
 
 const isSubscription = ref();
 const checkoutRef = ref();
-const checkoutSubscriptionRef = ref();
 const id = ref();
-const idSubscription = ref();
 const items = ref();
-const itemsSubscription = ref();
 const publishableKey = ref(store.stripe_key);
 const title = ref('');
 
@@ -22,19 +19,11 @@ const successURL = ref(`${window.location.protocol}//${window.location.host}/suc
 const cancelURL = ref(`${window.location.protocol}//${window.location.host}/error`);
 
 async function submit() {
-  id.value = props.blok.id;
+  id.value = isSubscription.value ? props.blok.id_subscription : props.blok.id;
   items.value = [{ price: id.value, quantity: 1 }];
 
   await nextTick();
   checkoutRef.value.redirectToCheckout();
-}
-
-async function submitSubscription() {
-  idSubscription.value = props.blok.id_subscription;
-  itemsSubscription.value = [{ price: idSubscription.value, quantity: 1 }];
-
-  await nextTick();
-  checkoutSubscriptionRef.value.redirectToCheckout();
 }
 
 function setValues() {
@@ -50,11 +39,11 @@ setValues();
 </script>
 
 <template>
-  <div :class="`item ${!isSubscription ? 'is-visible' : ''}`">
+  <div class="item">
     <stripe-checkout
       v-if="id"
       ref="checkoutRef"
-      mode="payment"
+      :mode="blok.mode"
       :pk="publishableKey"
       :line-items="items"
       :success-url="successURL"
@@ -63,32 +52,10 @@ setValues();
 
     <Button :variant="blok.variant || 'basic'" @click="submit">{{ title }}</Button>
   </div>
-
-  <div :class="`item ${isSubscription ? 'is-visible' : ''}`">
-    <ClientOnly fallback-tag="span" fallback="Loading comments...">
-      <stripe-checkout
-        v-if="idSubscription"
-        ref="checkoutSubscriptionRef"
-        mode="subscription"
-        :pk="publishableKey"
-        :line-items="itemsSubscription"
-        :success-url="successURL"
-        :cancel-url="cancelURL"
-      />
-    </ClientOnly>
-
-    <Button :variant="blok.variant || 'basic'" @click="submitSubscription">{{ title }}</Button>
-  </div>
 </template>
 
 <style scoped>
 .item {
-  margin-top: 1rem;
   margin-right: 1rem;
-  display: none;
-
-  &.is-visible {
-    display: block;
-  }
 }
 </style>

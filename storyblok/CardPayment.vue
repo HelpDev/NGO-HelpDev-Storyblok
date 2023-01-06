@@ -99,6 +99,7 @@ setMode();
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    margin-top: 1rem;
   }
 
   &__toggle {
@@ -120,7 +121,7 @@ setMode();
     }
 
     :deep(.switch) {
-      margin-right: 0.25rem;
+      margin: 0 0.25rem;
     }
 
     :deep(input:checked ~ .track) {
