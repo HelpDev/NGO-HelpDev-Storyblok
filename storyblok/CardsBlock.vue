@@ -27,10 +27,14 @@ defineProps({ blok: Object });
   }
 
   :deep(.card) {
-    --min-height: 35rem;
+    --min-height: 25rem;
     --max-height: 30vmax;
     --margin: 0.5rem;
     --full-width: calc(var(--width) - var(--margin) * 2);
+
+    @media (--breakpoint-s) {
+      --min-height: 35rem;
+    }
   }
 }
 </style>

@@ -9,7 +9,14 @@ const store = useSettingsStore();
 const title = ref(store.footer_title);
 const subtitle = ref(store.footer_subtitle);
 const thanks = ref(store.footer_thanks);
-const social = reactive(store.social);
+const social = ref(store.social);
+
+watchEffect(() => {
+  title.value = store.footer_title;
+  subtitle.value = store.footer_subtitle;
+  thanks.value = store.footer_thanks;
+  social.value = store.social;
+});
 
 function updateLocale(locale) {
   setLocale(locale);
@@ -33,7 +40,7 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
           <h4 class="footer__title">{{ title }}</h4>
           <h5 class="footer__subtitle">{{ subtitle }}</h5>
 
-          <ul class="footer__actions">
+          <ul v-if="social" class="footer__actions">
             <li v-for="element in social" :key="element._uid">
               <NuxtLink
                 class="footer__link"

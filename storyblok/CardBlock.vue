@@ -23,6 +23,7 @@ const justify = ref(image.value ? cardImageSide.justify : 'flex-start');
 const align = ref(image.value ? cardImageSide.align : 'center');
 const position = ref(props.blok.image_side === 'center' ? 'absolute' : 'initial');
 const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
+const minHeightThumbnail = ref(!props.blok.title && richtext.value === '<p></p>' ? '35rem' : '50%');
 </script>
 
 <template>
@@ -89,7 +90,7 @@ const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
 
   &__info,
   &__thumbnail {
-    height: 50%;
+    height: v-bind(minHeightThumbnail);
     width: 100%;
     position: v-bind(position);
 
