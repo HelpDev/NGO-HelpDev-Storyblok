@@ -19,6 +19,11 @@ const successURL = ref(`${window.location.protocol}//${window.location.host}/suc
 const cancelURL = ref(`${window.location.protocol}//${window.location.host}/error`);
 
 async function submit() {
+  if (props.blok.customlink) {
+    window.location.href = props.blok.customlink;
+    return;
+  }
+
   id.value = isSubscription.value ? props.blok.id_subscription : props.blok.id;
   items.value = [{ price: id.value, quantity: 1 }];
 
@@ -28,7 +33,7 @@ async function submit() {
 
 function setValues() {
   isSubscription.value = props.blok.mode === 'subscription';
-  title.value = `${props.blok.title} ${isSubscription.value ? props.blok.month_button : ''}`;
+  title.value = `${props.blok.title} ${isSubscription.value && !props.blok.customlink ? props.blok.month_button : ''}`;
 }
 
 watch([() => props.blok.mode], () => {
@@ -41,7 +46,7 @@ setValues();
 <template>
   <div class="item">
     <stripe-checkout
-      v-if="id"
+      v-if="id && !blok.customlink"
       ref="checkoutRef"
       :mode="blok.mode"
       :pk="publishableKey"
