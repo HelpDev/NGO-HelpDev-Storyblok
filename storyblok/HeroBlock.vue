@@ -75,6 +75,7 @@ defineProps({ blok: Object });
     font-weight: var(--font-weight-bold);
     text-align: center;
     max-width: 80%;
+    filter: drop-shadow(2px 2px 0 var(--background-from));
 
     @media (--breakpoint-s) {
       font-size: var(--font-size-xxxl);
@@ -82,6 +83,7 @@ defineProps({ blok: Object });
 
     @media (--breakpoint-m) {
       max-width: 35rem;
+      filter: none;
     }
   }
 
@@ -91,11 +93,16 @@ defineProps({ blok: Object });
     line-height: calc(var(--font-size-l) * 1.5);
     text-align: center;
     max-width: 80%;
+    filter: drop-shadow(1px 1px 0 var(--background-from));
 
     @media (--breakpoint-s) {
       font-size: var(--font-size-xl);
       line-height: calc(var(--font-size-xl) * 1.5);
       font-weight: var(--font-weight-light);
+    }
+
+    @media (--breakpoint-m) {
+      filter: none;
     }
 
     @media (--breakpoint-m) {

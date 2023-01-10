@@ -73,15 +73,16 @@ const minHeightThumbnail = ref(!props.blok.title && richtext.value === '<p></p>'
   width: 100%;
   margin-top: 0.5rem;
   min-height: var(--min-height);
-  max-height: var(--max-height);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 
   @media (--breakpoint-m) {
     width: var(--full-width);
+    max-height: var(--max-height);
     margin-right: var(--margin);
     flex-direction: v-bind(direction);
     justify-content: v-bind(justify);
@@ -90,7 +91,6 @@ const minHeightThumbnail = ref(!props.blok.title && richtext.value === '<p></p>'
 
   &__info,
   &__thumbnail {
-    height: v-bind(minHeightThumbnail);
     width: 100%;
     position: v-bind(position);
 
@@ -101,6 +101,7 @@ const minHeightThumbnail = ref(!props.blok.title && richtext.value === '<p></p>'
   }
 
   &__thumbnail {
+    min-height: var(--min-height);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -108,11 +109,16 @@ const minHeightThumbnail = ref(!props.blok.title && richtext.value === '<p></p>'
   }
 
   &__info {
+    max-width: 90%;
     padding: var(--padding);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    @media (--breakpoint-m) {
+      max-width: 100%;
+    }
 
     :deep(ul) {
       padding: 0;
