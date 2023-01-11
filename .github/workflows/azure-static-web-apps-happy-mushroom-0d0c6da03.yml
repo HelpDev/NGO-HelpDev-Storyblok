@@ -9,7 +9,7 @@ on:
     types: [content]
     
 env:
-  NODE_VERSION: "14.x"
+  NODE_VERSION: "18.x"
   STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_TOKEN }}
 
 jobs:
