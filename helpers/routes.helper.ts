@@ -1,6 +1,8 @@
 import { apiPlugin } from '@storyblok/vue';
 import { defaultLocale, locales } from './locales.helper';
 
+const disabledSlugs = ['config'];
+
 export function getRoutes(accessToken: string) {
   return async () => {
     const { storyblokApi } = apiPlugin({ apiOptions: { accessToken } });
@@ -17,7 +19,9 @@ export function getRoutes(accessToken: string) {
 
       routes = [
         ...routes,
-        ...pages.data.stories.map((story) => `/${locale === defaultLocale ? '' : locale + '/'}${story.slug}`)
+        ...pages.data.stories
+          .filter((x) => !disabledSlugs.includes(x.slug))
+          .map((x) => `/${locale === defaultLocale ? '' : locale + '/'}${x.slug}`)
       ];
     }
 
