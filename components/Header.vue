@@ -157,6 +157,10 @@ const actions = ref(store.actions);
       color: var(--color-primary-brightest);
     }
 
+    &.router-link-active {
+      text-decoration: underline;
+    }
+
     @media (--breakpoint-s) {
       font-size: var(--font-size-l);
       margin: 0 2rem;
