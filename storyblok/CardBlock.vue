@@ -23,7 +23,6 @@ const justify = ref(image.value ? cardImageSide.justify : 'flex-start');
 const align = ref(image.value ? cardImageSide.align : 'center');
 const position = ref(props.blok.image_side === 'center' ? 'absolute' : 'initial');
 const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
-const minHeightThumbnail = ref(!props.blok.title && richtext.value === '<p></p>' ? '35rem' : '50%');
 </script>
 
 <template>
@@ -106,6 +105,10 @@ const minHeightThumbnail = ref(!props.blok.title && richtext.value === '<p></p>'
     background-size: cover;
     background-repeat: no-repeat;
     display: v-bind(imageDisplay);
+
+    @media (--breakpoint-m) {
+      min-height: auto;
+    }
   }
 
   &__info {
