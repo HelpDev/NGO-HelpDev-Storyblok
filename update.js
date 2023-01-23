@@ -25,8 +25,11 @@ const TEMPLATE_REPO = 'https://github.com/HelpDev/NGO-HelpDev-Storyblok.git';
     if (!error.message.includes('already exists')) {
       throw error;
     }
+
+    await git.raw('switch', 'template');
   }
-  await git.raw('fetch', 'template');
+
+  await git.raw('pull');
 
   // Move to origin main
   await git.raw('switch', 'main');
