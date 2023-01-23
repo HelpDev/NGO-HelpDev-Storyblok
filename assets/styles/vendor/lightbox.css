@@ -1,12 +1,11 @@
 @import '../mixins/background-opacity.css';
-@import '~/node_modules/vue-easy-lightbox/external-css/vue-easy-lightbox.css';
 
-.vel {
-  &-modal {
+.card-modal {
+  &.vel-modal {
     @mixin background-opacity var(--color-primary-darker), 0.35;
   }
 
-  &-img {
+  &.vel-img {
     box-shadow: 0 5px 20px 2px var(--color-primary-darkest);
   }
 }

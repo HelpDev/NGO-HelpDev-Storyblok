@@ -58,7 +58,7 @@ function onHideLightbox() {
       </ul>
     </div>
   </div>
-  <vue-easy-lightbox :visible="lightBoxVisible" :imgs="[image]" @hide="onHideLightbox">
+  <vue-easy-lightbox class="card-modal" :visible="lightBoxVisible" :imgs="[image]" @hide="onHideLightbox">
     <template #toolbar="{}"> </template>
   </vue-easy-lightbox>
 </template>
