@@ -8377,6 +8377,11 @@ vue-devtools-stub@^0.1.0:
   resolved "https://registry.yarnpkg.com/vue-devtools-stub/-/vue-devtools-stub-0.1.0.tgz#a65b9485edecd4273cedcb8102c739b83add2c81"
   integrity sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==
 
+vue-easy-lightbox@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/vue-easy-lightbox/-/vue-easy-lightbox-1.11.0.tgz#1d448f8641ebd012d094d3b88a5a479555891d48"
+  integrity sha512-t9ouC2rHz/VMt/XSbnVgkED/7Dqe/DHrX6mW4AUj5Kt1PSr3czVk+ecBtF/Q4ivmSdkNJRk2/6D5PGcwxJuozQ==
+
 vue-eslint-parser@^9.0.1, vue-eslint-parser@^9.1.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-9.1.0.tgz#0e121d1bb29bd10763c83e3cc583ee03434a9dd5"

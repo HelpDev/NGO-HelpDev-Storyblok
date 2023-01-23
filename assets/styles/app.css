@@ -1,5 +1,6 @@
 @import './variables.css';
 @import './vendor/normalize.css';
+@import './vendor/lightbox.css';
 @import './vendor/papanasi.css';
 
 html,

@@ -23,11 +23,20 @@ const justify = ref(image.value ? cardImageSide.justify : 'flex-start');
 const align = ref(image.value ? cardImageSide.align : 'center');
 const position = ref(props.blok.image_side === 'center' ? 'absolute' : 'initial');
 const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
+const lightBoxVisible = ref(false);
+
+function onClickImage() {
+  lightBoxVisible.value = true;
+}
+
+function onHideLightbox() {
+  lightBoxVisible.value = false;
+}
 </script>
 
 <template>
   <div class="card">
-    <div :style="{ 'background-image': `url(${image})` }" class="card__thumbnail"></div>
+    <div :style="{ 'background-image': `url(${image})` }" class="card__thumbnail" @click="onClickImage"></div>
     <div class="card__info">
       <h3 class="card__title">{{ blok.title }}</h3>
       <p class="card__subtitle" v-html="richtext"></p>
@@ -49,6 +58,9 @@ const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
       </ul>
     </div>
   </div>
+  <vue-easy-lightbox :visible="lightBoxVisible" :imgs="[image]" @hide="onHideLightbox">
+    <template #toolbar="{}"> </template>
+  </vue-easy-lightbox>
 </template>
 
 <style scoped>
@@ -93,6 +105,7 @@ const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
   &__thumbnail {
     width: 100%;
     position: v-bind(position);
+    z-index: 1;
 
     @media (--breakpoint-m) {
       height: var(--image-height);
@@ -102,10 +115,12 @@ const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
 
   &__thumbnail {
     min-height: var(--min-height);
+    cursor: zoom-in;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     display: v-bind(imageDisplay);
+    z-index: 2;
 
     @media (--breakpoint-m) {
       min-height: auto;
@@ -180,3 +195,4 @@ const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
   }
 }
 </style>
+@hide="onHideLightbox"
