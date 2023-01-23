@@ -80,6 +80,7 @@ setMode();
   @media (--breakpoint-m) {
     width: var(--full-width);
     margin-right: var(--margin);
+    margin-left: var(--margin);
   }
 
   &__title {

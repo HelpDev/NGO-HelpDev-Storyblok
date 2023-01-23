@@ -82,6 +82,7 @@ const maxHeight = ref(props.blok.size === '2' ? 'auto' : '20vmax');
   @media (--breakpoint-m) {
     width: var(--full-width);
     max-height: var(--max-height);
+    margin-left: var(--margin);
     margin-right: var(--margin);
     flex-direction: v-bind(direction);
     justify-content: v-bind(justify);
