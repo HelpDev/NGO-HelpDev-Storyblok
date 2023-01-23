@@ -28,8 +28,8 @@ export default defineNuxtConfig({
     locales,
     defaultLocale,
     detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
+      useCookie: false,
+      alwaysRedirect: true,
       redirectOn: 'root'
     }
   },
