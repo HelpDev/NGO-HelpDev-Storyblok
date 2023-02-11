@@ -50,6 +50,7 @@ export default defineNuxtConfig({
       if (nitroConfig.dev) {
         return;
       }
+
       const routes = await getRoutesByToken();
       nitroConfig.prerender.routes = [...nitroConfig.prerender.routes, ...routes];
     }
