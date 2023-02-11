@@ -1,6 +1,8 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 const accessToken = process.env.STORYBLOK_TOKEN;
-import { defaultLocale, getRoutes, locales, otherLocalesRoutes } from './helpers';
+import { defaultLocale, getRoutes, locales } from './helpers';
+
+const getRoutesByToken = getRoutes(accessToken);
 
 export default defineNuxtConfig({
   css: ['@papanasi/vue/papanasi.css', '~/assets/styles/app.css'],
@@ -43,11 +45,20 @@ export default defineNuxtConfig({
       }
     }
   },
+  hooks: {
+    async 'nitro:config'(nitroConfig) {
+      if (nitroConfig.dev) {
+        return;
+      }
+      const routes = await getRoutesByToken();
+      nitroConfig.prerender.routes = [...nitroConfig.prerender.routes, ...routes];
+    }
+  },
   generate: {
-    routes: otherLocalesRoutes
+    // routes check prerender above
   },
   sitemap: {
     hostname: 'https://helpdev.org',
-    routes: getRoutes(accessToken)
+    routes: getRoutesByToken
   }
 });
