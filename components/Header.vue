@@ -41,8 +41,8 @@ const actions = ref(store.actions);
 
 <template>
   <Container :fluid="true" class="header">
-    <Row basic="column" s="row" class="header__container">
-      <Column :s="2" class="header__column">
+    <Row basic="column" m="row" class="header__container">
+      <Column :m="2" class="header__column">
         <NuxtLink to="/">
           <img
             class="header__logo"
@@ -72,7 +72,7 @@ const actions = ref(store.actions);
           </ul>
         </nav>
       </Column>
-      <Column :s="2" class="header__column">
+      <Column :m="2" class="header__column">
         <ul class="header__menu">
           <li v-for="blok in actions" :key="blok._uid">
             <NuxtLink
@@ -99,7 +99,7 @@ const actions = ref(store.actions);
   top: 1rem;
   height: var(--header-height-min);
 
-  @media (--breakpoint-s) {
+  @media (--breakpoint-m) {
     height: var(--header-height);
     top: 0;
   }
@@ -121,7 +121,7 @@ const actions = ref(store.actions);
     max-width: 8rem;
     height: auto;
 
-    @media (--breakpoint-s) {
+    @media (--breakpoint-m) {
       max-width: 13rem;
     }
   }
