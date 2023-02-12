@@ -20,9 +20,6 @@ watchEffect(() => {
 
 function updateLocale(locale) {
   setLocale(locale);
-
-  // SetLocale not working well in static apps
-  setTimeout(() => location.reload(), 10);
 }
 
 const iconTemplate = (icon) => {
