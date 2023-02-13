@@ -95,7 +95,7 @@ watch([() => locale.value], () => {
                   : blok.link.cached_url
               "
             >
-              <Button class="header__button" :outline="true" variant="basic">{{ blok.title }}</Button>
+              <Button class="header__button" variant="basic">{{ blok.title }}</Button>
             </NuxtLink>
           </li>
         </ul>
@@ -110,7 +110,7 @@ watch([() => locale.value], () => {
   top: 1rem;
   height: var(--header-height-min);
 
-  @media (--breakpoint-m) {
+  @media (--breakpoint-s) {
     height: var(--header-height);
     top: 0;
   }
@@ -123,7 +123,7 @@ watch([() => locale.value], () => {
     width: 90vw;
     height: var(--header-height-min);
 
-    @media (--breakpoint-s) {
+    @media (--breakpoint-m) {
       height: var(--header-height);
     }
   }
@@ -172,7 +172,7 @@ watch([() => locale.value], () => {
       text-decoration: underline;
     }
 
-    @media (--breakpoint-s) {
+    @media (--breakpoint-m) {
       font-size: var(--font-size-l);
       margin: 0 2rem;
     }
@@ -182,19 +182,20 @@ watch([() => locale.value], () => {
     --pa-border-width-small: 3px;
     --pa-button-radius: 100rem;
 
-    background-color: transparent;
+    background-color: var(--color-basic-brightest);
     font-size: var(--font-size-s);
-
-    color: var(--color-basic-brightest);
+    color: var(--color-primary-normal);
     border-color: var(--color-basic-brightest);
-    transition: opacity var(--transition-duration-normal);
+    transition-property: var(--transition-all);
+    transition-duration: var(--transition-duration-normal);
 
-    @media (--breakpoint-s) {
+    @media (--breakpoint-m) {
       font-size: var(--font-size-m);
     }
 
     &:hover {
-      opacity: 0.9;
+      transform: translateY(-0.1rem);
+      box-shadow: 0 0.35rem 0.25rem var(--color-primary-dark);
     }
   }
 }
