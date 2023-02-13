@@ -22,7 +22,8 @@ export const useSettingsStore = defineStore<string, any>('settings', {
     footer_title: null,
     footer_subtitle: null,
     footer_thanks: null,
-    social: null
+    social: null,
+    currentUrl: null
   }),
   actions: {
     update(settings: any) {
@@ -35,6 +36,9 @@ export const useSettingsStore = defineStore<string, any>('settings', {
       this.footer_subtitle = settings.footer_subtitle;
       this.footer_thanks = settings.footer_thanks;
       this.stripe_key = settings.stripe_key;
+    },
+    setCurrentUrl(url: string) {
+      this.currentUrl = url;
     }
   }
 });

@@ -26,6 +26,8 @@ onMounted(() => {
       resolveRelations
     });
   }
+
+  setTimeout(() => sessionStorage.setItem('currentUrl', history.state.current), 100);
 });
 </script>
 

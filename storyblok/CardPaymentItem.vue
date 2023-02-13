@@ -4,7 +4,6 @@ import { StripeCheckout } from '@vue-stripe/vue-stripe';
 import { useSettingsStore } from '~/stores';
 
 const store = useSettingsStore();
-const router = useRouter();
 
 const props = defineProps({ blok: Object });
 

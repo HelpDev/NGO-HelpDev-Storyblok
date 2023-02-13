@@ -14,32 +14,46 @@ async function redirect() {
   });
 }
 
-if (delay.value) {
-  setTimeout(redirect, delay.value);
-} else {
-  await redirect();
+async function main() {
+  const redirectUri = sessionStorage.getItem('currentUrl');
+
+  if (redirectUri === history.state.current && history.state.back) {
+    await navigateTo(history.state.back);
+
+    return;
+  }
+
+  setTimeout(redirect, delay.value || 200);
 }
+
+await main();
 </script>
 
 <template>
   <div class="redirect">
-    <Spinner variant="primary" :full="true" />
+    <div class="redirect__container">
+      <Spinner variant="primary" :full="true" />
+    </div>
   </div>
 </template>
 
 <style scoped>
 .redirect {
-  position: absolute;
-  height: 10rem;
-  width: 80vw;
-  bottom: 30vh;
-  left: 10vw;
-  border-radius: 0.5rem;
-  overflow: hidden;
+  min-height: 70vh;
 
-  @media (--breakpoint-s) {
-    width: 60vw;
-    left: 20vw;
+  &__container {
+    position: absolute;
+    height: 10rem;
+    width: 80vw;
+    bottom: 30vh;
+    left: 10vw;
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    @media (--breakpoint-s) {
+      width: 60vw;
+      left: 20vw;
+    }
   }
 }
 </style>
