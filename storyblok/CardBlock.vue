@@ -163,6 +163,19 @@ function onHideLightbox() {
 
   &__subtitle {
     text-align: justify;
+
+    :deep(h2) {
+      margin: 0.5rem 0;
+      font-weight: var(--font-weight-medium);
+      font-size: var(--font-size-xl);
+    }
+
+    :deep(h3) {
+      margin: 0.5rem 0;
+      color: var(--color-primary-dark);
+      font-weight: var(--font-weight-medium);
+      font-size: var(--font-size-l);
+    }
   }
 
   &__actions {
