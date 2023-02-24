@@ -6,7 +6,8 @@
 html,
 body {
   font-family: var(--font-family);
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 1.25rem;
   color: var(--color-basic-darkest);
   background-color: var(--color-basic-brightest);
   box-shadow: inset 0 calc(var(--header-height-min) * 1.15) 0 var(--color-primary-normal);
@@ -17,7 +18,7 @@ body {
   }
 
   @media (--breakpoint-l) {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 
