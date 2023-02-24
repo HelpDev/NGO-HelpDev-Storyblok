@@ -171,7 +171,7 @@ function onHideLightbox() {
     }
 
     :deep(h3) {
-      margin: 0.5rem 0;
+      margin: 0.75rem 0 0.5rem 0;
       color: var(--color-primary-dark);
       font-weight: var(--font-weight-medium);
       font-size: var(--font-size-l);
