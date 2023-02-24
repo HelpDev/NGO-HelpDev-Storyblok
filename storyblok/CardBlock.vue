@@ -148,12 +148,6 @@ function onHideLightbox() {
     }
   }
 
-  &__title,
-  &__subtitle,
-  &__actions {
-    backdrop-filter: blur(1px);
-  }
-
   &__title {
     font-family: var(--font-family-heading);
     font-size: var(--font-size-xl);

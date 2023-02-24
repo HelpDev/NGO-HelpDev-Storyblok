@@ -78,7 +78,7 @@ defineProps({ blok: Object });
     filter: drop-shadow(2px 2px 0 var(--background-from));
 
     @media (--breakpoint-s) {
-      font-size: var(--font-size-xxxl);
+      font-size: var(--font-size-xxxxl);
     }
 
     @media (--breakpoint-m) {
