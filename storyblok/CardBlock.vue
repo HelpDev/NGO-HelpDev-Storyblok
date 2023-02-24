@@ -167,6 +167,10 @@ function onHideLightbox() {
     }
   }
 
+  &__subtitle {
+    text-align: justify;
+  }
+
   &__actions {
     display: flex;
     justify-content: center;
@@ -195,4 +199,3 @@ function onHideLightbox() {
   }
 }
 </style>
-@hide="onHideLightbox"
