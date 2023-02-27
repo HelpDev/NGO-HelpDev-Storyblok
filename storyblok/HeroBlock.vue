@@ -72,6 +72,7 @@ defineProps({ blok: Object });
     color: var(--color-basic-brightest);
     font-family: var(--font-family-heading);
     font-size: var(--font-size-xxl);
+    line-height: var(--font-size-xxl);
     font-weight: var(--font-weight-bold);
     text-align: center;
     max-width: 80%;
@@ -79,6 +80,7 @@ defineProps({ blok: Object });
 
     @media (--breakpoint-s) {
       font-size: var(--font-size-xxxxl);
+      line-height: var(--font-size-xxxxl);
     }
 
     @media (--breakpoint-m) {

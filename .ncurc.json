@@ -1,0 +1,5 @@
+{
+    "reject": [
+        "postcss-custom-media"
+    ]
+}
