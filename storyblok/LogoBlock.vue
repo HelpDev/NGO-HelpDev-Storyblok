@@ -60,7 +60,7 @@ main();
   }
 
   &__title {
-    font-weight: bold;
+    font-weight: var(--font-weight-medium);
   }
 }
 </style>
