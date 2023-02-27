@@ -16,7 +16,9 @@ async function main() {
   backgroundImage.value = `url(${src.value})`;
 
   title.value = props.blok?.defaultTitle || title.value?.replace(/ ?(\||-).*/g, '');
-  backgroundImage.value = `url(${props.blok?.defaultImage?.filename})` || backgroundImage.value;
+  backgroundImage.value = props.blok?.defaultImage?.filename
+    ? `url(${props.blok?.defaultImage?.filename})`
+    : backgroundImage.value;
 }
 
 main();
