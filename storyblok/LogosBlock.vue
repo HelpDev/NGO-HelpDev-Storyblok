@@ -1,13 +1,15 @@
 <script setup>
 import { Container, Row } from '@papanasi/vue';
 
-defineProps({ blok: Object });
+const props = defineProps({ blok: Object });
+
+const smaller = ref(props.blok?.smaller);
 </script>
 
 <template>
   <Container v-editable="blok" class="logos">
     <Row class="logos__row">
-      <StoryblokComponent v-for="logo in blok.logos" :key="logo._uid" :blok="logo" />
+      <StoryblokComponent v-for="logo in blok.logos" :key="logo._uid" :blok="{ ...logo, smaller }" />
     </Row>
   </Container>
 </template>
