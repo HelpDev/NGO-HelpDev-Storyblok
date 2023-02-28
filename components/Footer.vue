@@ -33,7 +33,7 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
   <Container :fluid="true" class="footer">
     <Container class="footer__container">
       <Row basic="column" s="row">
-        <Column class="footer__column" :basic="full" :s="8">
+        <Column class="footer__column" basic="fill" :s="8">
           <h4 class="footer__title">{{ title }}</h4>
           <h5 class="footer__subtitle">{{ subtitle }}</h5>
 
@@ -71,7 +71,7 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
           </div>
         </Column>
 
-        <Column class="footer__column" :basic="full" :s="4">
+        <Column class="footer__column" basic="fill" :s="4">
           <h4 class="footer__title footer__title--thanks">{{ thanks }}</h4>
           <NuxtLink to="https://helpdev.org" target="_blank">
             <img

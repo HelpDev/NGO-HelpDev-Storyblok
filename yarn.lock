@@ -9536,6 +9536,11 @@ vue-router@^4.1.6:
   dependencies:
     "@vue/devtools-api" "^6.4.5"
 
+vue3-autocounter@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/vue3-autocounter/-/vue3-autocounter-1.0.6.tgz#655e275707aeb084628facd7b231be09d383521d"
+  integrity sha512-jOgCD2WaOjt/tOAAGKDm2DTyQRdKyfqJv5ElUz/vR0ZJgUd4yDd6UX6+2YU3LQpY4qoFNZkzLloAfALAqK041g==
+
 vue3-toggle-button@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/vue3-toggle-button/-/vue3-toggle-button-1.0.3.tgz#3521a20afe3655ed62b284ba20ee0bce39e71b5b"
