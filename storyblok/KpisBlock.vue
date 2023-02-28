@@ -15,6 +15,7 @@ defineProps({ blok: Object });
 <style scoped>
 .kpis {
   margin: 0 auto;
+  max-width: 80rem;
 
   &__row {
     justify-content: center;

@@ -9,7 +9,7 @@ const { data } = await useFetch(
 );
 
 const title = ref(props.blok?.title);
-const separator = ref(props.blok?.separator || '');
+const separator = ref('.');
 const prefix = ref(props.blok?.prefix || '');
 const suffix = ref(props.blok?.suffix || '');
 const fromNumber = ref(Number(props.blok?.fromNumber) || 0);
@@ -49,27 +49,60 @@ watch([() => counterRefIsVisible.value], (isVisible) => {
 
 <template>
   <div v-if="icon" class="kpi">
-    <span class="kpi__title"> {{ title }} </span>
     <div class="kpi__icon" v-html="icon"></div>
-    <vue3-autocounter
-      ref="counterRef"
-      class="kpi__counter"
-      :start-amount="fromNumber"
-      :end-amount="toNumber"
-      :prefix="prefix"
-      :suffix="suffix"
-      :duration="3"
-      :separator="separator"
-      :decimals="0"
-      :autoinit="false"
-    />
+    <div class="kpi__info">
+      <vue3-autocounter
+        ref="counterRef"
+        class="kpi__counter"
+        :start-amount="fromNumber"
+        :end-amount="toNumber"
+        :prefix="prefix"
+        :suffix="suffix"
+        :duration="3"
+        :separator="separator"
+        :decimals="0"
+        :autoinit="false"
+      />
+
+      <span class="kpi__title"> {{ title }} </span>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .kpi {
+  --size: 4rem;
+  --counter-size: var(--font-size-xxl);
+
+  display: flex;
+  margin: 1rem;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: calc(var(--size) - var(--counter-size) * 0.8);
+  }
+
   &__title {
     font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-l);
+    width: 7rem;
+    padding-top: 0.5rem;
+  }
+
+  &__icon:deep(svg) {
+    height: var(--size);
+    width: var(--size);
+  }
+
+  &__icon:deep(path) {
+    color: var(--color-primary-dark);
+  }
+
+  &__counter {
+    font-size: var(--counter-size);
+    font-weight: var(--font-weight-bold);
   }
 }
 </style>
