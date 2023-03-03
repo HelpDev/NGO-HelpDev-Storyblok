@@ -75,52 +75,52 @@ function onHideLightbox() {
   --max-height: v-bind(maxHeight);
   --image-width: v-bind(imageWidth);
   --image-height: v-bind(imageHeight);
-
-  background-color: var(--background);
-  background-position: center v-bind(side);
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: var(--foreground);
-  width: 100%;
-  margin-top: 0.5rem;
-  min-height: var(--min-height);
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  position: relative;
+  justify-content: center;
+  width: 100%;
+  min-height: var(--min-height);
+  margin-top: 0.5rem;
   overflow: hidden;
+  color: var(--foreground);
+
+  background-color: var(--background);
+  background-repeat: no-repeat;
+  background-position: center v-bind(side);
+  background-size: cover;
 
   @media (--breakpoint-m) {
+    flex-direction: v-bind(direction);
+    align-items: v-bind(align);
+    justify-content: v-bind(justify);
     width: var(--full-width);
     max-height: var(--max-height);
-    margin-left: var(--margin);
     margin-right: var(--margin);
-    flex-direction: v-bind(direction);
-    justify-content: v-bind(justify);
-    align-items: v-bind(align);
+    margin-left: var(--margin);
   }
 
   &__info,
   &__thumbnail {
-    width: 100%;
     position: v-bind(position);
     z-index: 1;
+    width: 100%;
 
     @media (--breakpoint-m) {
-      height: var(--image-height);
       width: var(--image-width);
+      height: var(--image-height);
     }
   }
 
   &__thumbnail {
+    z-index: 2;
+    display: v-bind(imageDisplay);
     min-height: var(--min-height);
     cursor: zoom-in;
+    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
-    display: v-bind(imageDisplay);
-    z-index: 2;
 
     @media (--breakpoint-m) {
       min-height: auto;
@@ -128,12 +128,12 @@ function onHideLightbox() {
   }
 
   &__info {
-    max-width: 90%;
-    padding: var(--padding);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
+    justify-content: center;
+    max-width: 90%;
+    padding: var(--padding);
 
     @media (--breakpoint-m) {
       max-width: 100%;
@@ -149,12 +149,12 @@ function onHideLightbox() {
   }
 
   &__title {
+    padding-bottom: 2rem;
+    margin-top: 0;
+    margin-bottom: 0;
     font-family: var(--font-family-heading);
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-bottom: 2rem;
 
     @media (--breakpoint-s) {
       font-size: var(--font-size-xxl);
@@ -166,35 +166,35 @@ function onHideLightbox() {
 
     :deep(h2) {
       margin: 0.5rem 0;
-      font-weight: var(--font-weight-medium);
       font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-medium);
     }
 
     :deep(h3) {
       margin: 0.75rem 0 0.5rem 0;
-      color: var(--color-primary-dark);
-      font-weight: var(--font-weight-medium);
       font-size: var(--font-size-l);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-primary-dark);
     }
   }
 
   &__actions {
     display: flex;
     justify-content: center;
-    list-style: none;
     padding: 0;
+    padding-top: 2rem;
     margin-top: 0;
     margin-bottom: 0;
-    padding-top: 2rem;
+    list-style: none;
   }
 
   &__link {
-    color: var(--color-basic-brightest);
+    margin-right: 0.25rem;
     font-family: var(--font-family-heading);
     font-weight: var(--font-weight-medium);
+    color: var(--color-basic-brightest);
     text-align: center;
     transition: color var(--transition-duration-normal);
-    margin-right: 0.25rem;
 
     &:hover {
       color: var(--color-primary-brightest);

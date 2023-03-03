@@ -38,15 +38,15 @@ const foreground = ref(variantColors[props.blok.variant].foreground);
 .title {
   --direction: v-bind(direction);
   --foreground: v-bind(foreground);
-
-  color: var(--foreground);
-  width: 100%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 100%;
   padding: 0;
+  margin: 0 auto;
+
+  color: var(--foreground);
 
   @media (--breakpoint-m) {
     flex-direction: var(--direction);
@@ -54,12 +54,12 @@ const foreground = ref(variantColors[props.blok.variant].foreground);
 
   &__main,
   &__subtitle {
-    margin: 0;
-    padding: 3vw;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 3vw;
+    margin: 0;
     text-align: center;
 
     @media (--breakpoint-m) {
@@ -79,8 +79,8 @@ const foreground = ref(variantColors[props.blok.variant].foreground);
   }
 
   &__subtitle {
-    opacity: 0.8;
     font-size: var(--font-size-m);
+    opacity: 0.8;
 
     @media (--breakpoint-m) {
       font-size: var(--font-size-l);

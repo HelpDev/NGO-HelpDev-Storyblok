@@ -64,18 +64,18 @@ setMode();
   --foreground: v-bind(foreground);
   --min-height: 20rem;
   --max-height: v-bind(maxHeight);
-
-  background-color: var(--background);
-  color: var(--foreground);
-  width: 100%;
-  padding: var(--padding);
-  margin-top: 0.5rem;
-  min-height: var(--min-height);
-  max-height: var(--max-height);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: v-bind(align);
+  justify-content: center;
+  width: 100%;
+  min-height: var(--min-height);
+  max-height: var(--max-height);
+  padding: var(--padding);
+  margin-top: 0.5rem;
+  color: var(--foreground);
+
+  background-color: var(--background);
 
   @media (--breakpoint-m) {
     width: var(--full-width);
@@ -84,12 +84,12 @@ setMode();
   }
 
   &__title {
+    padding-bottom: 2rem;
+    margin-top: 0;
+    margin-bottom: 0;
     font-family: var(--font-family-heading);
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-bottom: 2rem;
 
     @media (--breakpoint-s) {
       font-size: var(--font-size-xxl);
@@ -104,12 +104,12 @@ setMode();
   }
 
   &__toggle {
-    margin-top: 1rem;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    font-size: var(--font-size-s);
     align-items: center;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    font-size: var(--font-size-s);
 
     :deep(.track) {
       background-color: var(--color-basic-bright);

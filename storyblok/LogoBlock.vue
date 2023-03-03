@@ -43,8 +43,8 @@ main();
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin: 1rem;
 
   @media (--breakpoint-s) {
@@ -63,31 +63,32 @@ main();
     --size: v-bind(logoSize);
 
     display: block;
+    width: var(--size);
+    max-width: 100%;
+    height: calc(var(--size) * 0.8);
+    margin-bottom: 0.5rem;
     background-image: v-bind(backgroundImage);
-    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: var(--size);
-    height: calc(var(--size) * 0.8);
-    max-width: 100%;
-    margin-bottom: 0.5rem;
+    background-size: contain;
   }
 
   &__title {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     font-weight: var(--font-weight-medium);
     text-align: center;
+    cursor: pointer;
     filter: saturate(0.25);
     transition: filter;
     transition-duration: var(--transition-duration-normal);
 
     &:hover,
     &:active {
-      filter: saturate(1);
       text-decoration: none;
+      filter: saturate(1);
     }
   }
 }

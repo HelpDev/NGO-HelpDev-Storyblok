@@ -35,12 +35,11 @@ defineProps({ blok: Object });
   margin: 0 auto;
 
   &__row {
+    position: relative;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
     padding-top: 200%;
-    position: relative;
     margin-bottom: 1rem;
+    overflow: hidden;
 
     @media (--breakpoint-s) {
       padding-top: 100%;
@@ -49,14 +48,14 @@ defineProps({ blok: Object });
 
   &__frame {
     position: relative;
-    z-index: 1;
-    border: 0;
-    height: 200%;
-    left: 0;
     position: absolute;
     top: 0;
+    left: 0;
+    z-index: 1;
     width: 100%;
+    height: 200%;
     overflow: hidden;
+    border: 0;
 
     @media (--breakpoint-s) {
       height: 100%;

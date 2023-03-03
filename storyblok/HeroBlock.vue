@@ -27,22 +27,22 @@ defineProps({ blok: Object });
   --hero-height: 90vh;
   --background-from: var(--color-primary-normal);
   --background-to: var(--color-primary-dark);
+  height: var(--hero-height);
+  margin-bottom: 1vw;
+  overflow: hidden;
 
   background-color: var(--background-from);
   background-image: linear-gradient(180deg, var(--background-from) 10%, var(--background-to) 100%);
-  height: var(--hero-height);
-  overflow: hidden;
-  margin-bottom: 1vw;
 
   &__container {
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0 auto;
-    height: var(--hero-height);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: var(--hero-height);
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
 
     @media (--breakpoint-s) {
       background-position: right top;
@@ -52,12 +52,12 @@ defineProps({ blok: Object });
 
   &__elements {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     height: calc(var(--hero-height) - var(--header-height-min));
-    backdrop-filter: blur(1px);
     padding-bottom: 1rem;
+    backdrop-filter: blur(1px);
 
     @media (--breakpoint-s) {
       height: calc(var(--hero-height) - var(--header-height));
@@ -69,13 +69,13 @@ defineProps({ blok: Object });
   }
 
   &__title {
-    color: var(--color-basic-brightest);
+    max-width: 80%;
     font-family: var(--font-family-heading);
     font-size: var(--font-size-xxl);
-    line-height: var(--font-size-xxl);
     font-weight: var(--font-weight-bold);
+    line-height: var(--font-size-xxl);
+    color: var(--color-basic-brightest);
     text-align: center;
-    max-width: 80%;
     filter: drop-shadow(2px 2px 0 var(--background-from));
 
     @media (--breakpoint-s) {
@@ -90,17 +90,17 @@ defineProps({ blok: Object });
   }
 
   &__subtitle {
-    color: var(--color-basic-brightest);
+    max-width: 80%;
     font-size: var(--font-size-l);
     line-height: calc(var(--font-size-l) * 1.5);
+    color: var(--color-basic-brightest);
     text-align: center;
-    max-width: 80%;
     filter: drop-shadow(1px 1px 0 var(--background-from));
 
     @media (--breakpoint-s) {
       font-size: var(--font-size-xl);
-      line-height: calc(var(--font-size-xl) * 1.5);
       font-weight: var(--font-weight-light);
+      line-height: calc(var(--font-size-xl) * 1.5);
     }
 
     @media (--breakpoint-m) {

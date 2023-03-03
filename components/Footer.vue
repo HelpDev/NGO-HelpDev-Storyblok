@@ -99,27 +99,27 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
 
 <style scoped>
 .footer {
-  background-color: var(--color-primary-normal);
   padding: 0 1rem 1.25rem 1rem;
   margin-top: 3vw;
+  background-color: var(--color-primary-normal);
 
   &__container {
-    color: var(--color-basic-brightest);
     margin: 0 auto;
+    color: var(--color-basic-brightest);
   }
 
   &__column {
-    padding-top: 2rem;
     display: flex;
     flex-direction: column;
+    padding-top: 2rem;
   }
 
   &__title {
+    display: block;
+    margin: 0;
     font-family: var(--font-family-heading);
     font-size: var(--font-size-l);
     font-weight: var(--font-weight-bold);
-    display: block;
-    margin: 0;
 
     @media (--breakpoint-s) {
       font-size: var(--font-size-xl);
@@ -135,19 +135,19 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
   }
 
   &__subtitle {
+    display: block;
+    max-width: 80%;
     padding-top: 0.5rem;
-    opacity: 0.8;
-    color: var(--color-basic-brightest);
+    margin: 0;
     font-size: var(--font-size-s);
     line-height: calc(var(--font-size-s) * 1.5);
-    max-width: 80%;
-    display: block;
-    margin: 0;
+    color: var(--color-basic-brightest);
+    opacity: 0.8;
 
     @media (--breakpoint-s) {
       font-size: var(--font-size-m);
-      line-height: calc(var(--font-size-m) * 1.5);
       font-weight: var(--font-weight-light);
+      line-height: calc(var(--font-size-m) * 1.5);
     }
 
     @media (--breakpoint-m) {
@@ -166,25 +166,25 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
 
   &__actions {
     display: flex;
-    list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
     margin-top: 1rem;
+    list-style: none;
   }
 
   &__link {
     --size: 2rem;
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
+    width: var(--size);
+    height: var(--size);
+    margin-right: 0.15rem;
 
     background-color: var(--color-basic-brightest);
-    border-radius: 100%;
-    display: inline-flex;
-    justify-content: center;
-    align-content: center;
-    height: var(--size);
-    width: var(--size);
     border: 2px solid var(--color-primary-normal);
+    border-radius: 100%;
     transition: border-color var(--transition-duration-normal);
-    margin-right: 0.15rem;
 
     @media (--breakpoint-s) {
       --size: 2.25rem;
@@ -208,16 +208,16 @@ const otherLocales = computed(() => locales.value.filter((x) => x.code !== local
   }
 
   &__languages {
+    padding-top: 0.75rem;
     font-size: var(--font-size-s);
     font-weight: var(--font-weight-bold);
-    padding-top: 0.75rem;
   }
 
   &__language {
+    margin-right: 0.25rem;
     color: var(--color-basic-brightest);
     border-bottom: 2px solid transparent;
     transition: border-color var(--transition-duration-normal);
-    margin-right: 0.25rem;
 
     &:hover,
     &:active {

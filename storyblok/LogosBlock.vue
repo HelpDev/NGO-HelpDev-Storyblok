@@ -19,8 +19,8 @@ const smaller = ref(props.blok?.smaller);
   margin: 0 auto;
 
   &__row {
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     padding: 1vw;
   }
 

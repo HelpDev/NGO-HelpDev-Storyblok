@@ -5,13 +5,13 @@
 
 html,
 body {
+  overflow-x: hidden;
   font-family: var(--font-family);
   font-size: 14px;
   line-height: 1.35rem;
   color: var(--color-basic-darkest);
   background-color: var(--color-basic-brightest);
   box-shadow: inset 0 calc(var(--header-height-min) * 1.15) 0 var(--color-primary-normal);
-  overflow-x: hidden;
 
   @media (--breakpoint-s) {
     box-shadow: inset 0 var(--header-height) 0 var(--color-primary-normal);

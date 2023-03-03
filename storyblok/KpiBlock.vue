@@ -85,15 +85,15 @@ watch([() => counterRefIsVisible.value], (isVisible) => {
   }
 
   &__title {
-    font-weight: var(--font-weight-medium);
-    font-size: var(--font-size-l);
     width: 7rem;
     padding-top: 0.5rem;
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
   }
 
   &__icon:deep(svg) {
-    height: var(--size);
     width: var(--size);
+    height: var(--size);
   }
 
   &__icon:deep(path) {

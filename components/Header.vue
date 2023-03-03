@@ -111,17 +111,17 @@ watch([() => locale.value], () => {
   height: var(--header-height-min);
 
   @media (--breakpoint-s) {
-    height: var(--header-height);
     top: 0;
+    height: var(--header-height);
   }
 
   &__container {
-    justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    max-width: var(--pa-grid-container-max-width);
+    justify-content: center;
     width: 90vw;
+    max-width: var(--pa-grid-container-max-width);
     height: var(--header-height-min);
+    margin: 0 auto;
 
     @media (--breakpoint-m) {
       height: var(--header-height);
@@ -138,15 +138,15 @@ watch([() => locale.value], () => {
   }
 
   &__column {
-    justify-content: center;
     align-items: center;
+    justify-content: center;
   }
 
   &__nav,
   &__menu {
+    width: 100%;
     padding: 0;
     margin: 0;
-    width: 100%;
   }
 
   &__menu {
@@ -156,13 +156,13 @@ watch([() => locale.value], () => {
   }
 
   &__link {
-    color: var(--color-basic-brightest);
-    font-family: var(--font-family-heading);
-    font-weight: var(--font-weight-medium);
-    text-align: center;
-    transition: color var(--transition-duration-normal);
     max-width: 80%;
     margin: 0 1rem;
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-basic-brightest);
+    text-align: center;
+    transition: color var(--transition-duration-normal);
 
     &:hover {
       color: var(--color-primary-brightest);
@@ -173,29 +173,29 @@ watch([() => locale.value], () => {
     }
 
     @media (--breakpoint-m) {
-      font-size: var(--font-size-l);
       margin: 0 2rem;
+      font-size: var(--font-size-l);
     }
   }
 
   &__button {
     --pa-border-width-small: 3px;
     --pa-button-radius: 100rem;
-
-    background-color: var(--color-basic-brightest);
     font-size: var(--font-size-s);
     color: var(--color-primary-normal);
+
+    background-color: var(--color-basic-brightest);
     border-color: var(--color-basic-brightest);
-    transition-property: var(--transition-all);
     transition-duration: var(--transition-duration-normal);
+    transition-property: var(--transition-all);
 
     @media (--breakpoint-m) {
       font-size: var(--font-size-m);
     }
 
     &:hover {
-      transform: translateY(-0.1rem);
       box-shadow: 0 0.35rem 0.25rem var(--color-primary-dark);
+      transform: translateY(-0.1rem);
     }
   }
 }

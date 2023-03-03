@@ -43,16 +43,16 @@ await main();
 
   &__container {
     position: absolute;
-    height: 10rem;
-    width: 80vw;
     bottom: 30vh;
     left: 10vw;
-    border-radius: 0.5rem;
+    width: 80vw;
+    height: 10rem;
     overflow: hidden;
+    border-radius: 0.5rem;
 
     @media (--breakpoint-s) {
-      width: 60vw;
       left: 20vw;
+      width: 60vw;
     }
   }
 }
