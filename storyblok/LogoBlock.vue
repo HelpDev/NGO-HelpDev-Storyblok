@@ -56,7 +56,7 @@ main();
   }
 
   @media (--breakpoint-l) {
-    margin: 1rem calc(1rem + var(--logo-margin) * 5);
+    margin: 1rem calc(1rem + var(--logo-margin) * 4);
   }
 
   &__image {
@@ -64,7 +64,7 @@ main();
 
     display: block;
     background-image: v-bind(backgroundImage);
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     width: var(--size);
