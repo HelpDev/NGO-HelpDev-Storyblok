@@ -6,6 +6,7 @@ const props = defineProps({ blok: Object });
 const url = ref(props.blok?.url?.url);
 const smaller = ref(props.blok?.smaller);
 const logoSize = ref(smaller.value ? '3rem' : '6rem');
+const logoMargin = ref(smaller.value ? '0rem' : '1rem');
 
 const src = ref(null);
 const title = ref(null);
@@ -38,6 +39,8 @@ main();
 
 <style scoped>
 .logo {
+  --logo-margin: v-bind(logoMargin);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,15 +48,15 @@ main();
   margin: 1rem;
 
   @media (--breakpoint-s) {
-    margin: 1rem 3rem;
+    margin: 1rem calc(1rem + var(--logo-margin) * 2rem);
   }
 
   @media (--breakpoint-m) {
-    margin: 1rem 4rem;
+    margin: 1rem calc(1rem + var(--logo-margin) * 3rem);
   }
 
   @media (--breakpoint-l) {
-    margin: 1rem 6rem;
+    margin: 1rem calc(1rem + var(--logo-margin) * 5rem);
   }
 
   &__image {
