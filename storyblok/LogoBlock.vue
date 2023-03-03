@@ -48,15 +48,15 @@ main();
   margin: 1rem;
 
   @media (--breakpoint-s) {
-    margin: 1rem calc(1rem + var(--logo-margin) * 2rem);
+    margin: 1rem calc(1rem + var(--logo-margin) * 2);
   }
 
   @media (--breakpoint-m) {
-    margin: 1rem calc(1rem + var(--logo-margin) * 3rem);
+    margin: 1rem calc(1rem + var(--logo-margin) * 3);
   }
 
   @media (--breakpoint-l) {
-    margin: 1rem calc(1rem + var(--logo-margin) * 5rem);
+    margin: 1rem calc(1rem + var(--logo-margin) * 5);
   }
 
   &__image {
