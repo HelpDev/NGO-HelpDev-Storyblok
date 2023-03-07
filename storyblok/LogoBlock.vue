@@ -1,95 +1,118 @@
 <script setup>
-import mql from '@microlink/mql';
+import { useElementVisibility } from '@vueuse/core';
+import Vue3Autocounter from 'vue3-autocounter';
 
 const props = defineProps({ blok: Object });
 
-const url = ref(props.blok?.url?.url);
-const smaller = ref(props.blok?.smaller);
-const logoSize = ref(smaller.value ? '3rem' : '6rem');
-const logoMargin = ref(smaller.value ? '0rem' : '1rem');
+const { data } = await useFetch(
+  () => `https://raw.githubusercontent.com/tabler/tabler-icons/master/icons/${props.blok?.icon || 'question-mark'}.svg`,
+  { key: props.blok?.icon }
+);
 
-const src = ref(null);
-const title = ref(null);
-const backgroundImage = ref('none');
+const title = ref(props.blok?.title);
+const separator = ref('.');
+const prefix = ref(props.blok?.prefix || '');
+const suffix = ref(props.blok?.suffix || '');
+const fromNumber = ref(Number(props.blok?.fromNumber) || 0);
+const toNumber = ref(Number(props.blok?.toNumber));
+const icon = ref(null);
+const wasAnimated = ref(false);
+const counterRef = ref(null);
+const counterRefIsVisible = useElementVisibility(counterRef);
 
-async function main() {
-  const { data } = await mql(url.value);
+watchEffect(() => {
+  const reader = new FileReader();
 
-  src.value = data?.logo?.url || data?.image?.url;
-  title.value = data?.title || data?.publisher;
-  backgroundImage.value = `url(${src.value})`;
+  reader.onload = () => {
+    icon.value = reader.result;
+  };
 
-  title.value = props.blok?.defaultTitle || title.value?.replace(/ ?(\||-).*/g, '');
-  backgroundImage.value = props.blok?.defaultImage?.filename
-    ? `url(${props.blok?.defaultImage?.filename})`
-    : backgroundImage.value;
-}
+  reader.onerror = () => {
+    console.error(`error rendering icon ${title.value}`);
+  };
 
-main();
+  reader.readAsText(data.value);
+});
+
+watch([() => counterRefIsVisible.value], (isVisible) => {
+  function animateNumbersIfWhereNotAnimated() {
+    if (!isVisible || wasAnimated.value) {
+      return;
+    }
+
+    wasAnimated.value = true;
+    counterRef.value.start();
+  }
+
+  animateNumbersIfWhereNotAnimated();
+});
 </script>
 
 <template>
-  <div v-if="src" class="logo">
-    <a :href="url" target="_blank" rel="noreferrer" class="logo__title">
-      <span class="logo__image"></span>
-      {{ smaller ? '' : title }}
-    </a>
+  <div v-if="icon" class="kpi">
+    <div class="kpi__icon" v-html="icon"></div>
+    <div class="kpi__info">
+      <vue3-autocounter
+        ref="counterRef"
+        class="kpi__counter"
+        :start-amount="fromNumber"
+        :end-amount="toNumber"
+        :prefix="prefix"
+        :suffix="suffix"
+        :duration="3"
+        :separator="separator"
+        :decimals="0"
+        :autoinit="false"
+      />
+
+      <span class="kpi__title"> {{ title }} </span>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.logo {
-  --logo-margin: v-bind(logoMargin);
+.kpi {
+  --size: 2rem;
+  --counter-size: var(--font-size-xl);
 
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   margin: 1rem;
 
-  @media (--breakpoint-s) {
-    margin: 1rem calc(1rem + var(--logo-margin) * 2);
-  }
-
   @media (--breakpoint-m) {
-    margin: 1rem calc(1rem + var(--logo-margin) * 3);
+    --size: 4rem;
+    --counter-size: var(--font-size-xxl);
   }
 
-  @media (--breakpoint-l) {
-    margin: 1rem calc(1rem + var(--logo-margin) * 4);
-  }
-
-  &__image {
-    --size: v-bind(logoSize);
-
-    display: block;
-    width: var(--size);
-    max-width: 100%;
-    height: calc(var(--size) * 0.8);
-    margin-bottom: 0.5rem;
-    background-image: v-bind(backgroundImage);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: calc(var(--size) - var(--counter-size) * 0.8);
   }
 
   &__title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 7rem;
+    padding-top: 0.5rem;
+    font-size: var(--font-size-m);
     font-weight: var(--font-weight-medium);
-    text-align: center;
-    cursor: pointer;
-    filter: saturate(0.25);
-    transition: filter;
-    transition-duration: var(--transition-duration-normal);
 
-    &:hover,
-    &:active {
-      text-decoration: none;
-      filter: saturate(1);
+    @media (--breakpoint-m) {
+      font-size: var(--font-size-l);
     }
+  }
+
+  &__icon:deep(svg) {
+    width: var(--size);
+    height: var(--size);
+  }
+
+  &__icon:deep(path) {
+    color: var(--color-primary-dark);
+  }
+
+  &__counter {
+    font-size: var(--counter-size);
+    font-weight: var(--font-weight-bold);
   }
 }
 </style>

@@ -58,12 +58,13 @@ const foreground = ref(variantColors[props.blok.variant].foreground);
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3vw;
+    padding: 1vw;
     margin: 0;
     text-align: center;
 
     @media (--breakpoint-m) {
       width: 50%;
+      padding: 3vw;
       text-align: left;
     }
   }
@@ -79,12 +80,8 @@ const foreground = ref(variantColors[props.blok.variant].foreground);
   }
 
   &__subtitle {
-    font-size: var(--font-size-m);
+    font-size: var(--font-size-l);
     opacity: 0.8;
-
-    @media (--breakpoint-m) {
-      font-size: var(--font-size-l);
-    }
   }
 }
 </style>
