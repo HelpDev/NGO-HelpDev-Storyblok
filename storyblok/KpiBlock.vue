@@ -91,13 +91,15 @@ watch([() => counterRefIsVisible.value], (isVisible) => {
   }
 
   &__title {
+    --font-size: var(--font-size-m);
+
     width: 7rem;
-    padding-top: 0.5rem;
-    font-size: var(--font-size-m);
+    padding-top: calc(var(--font-size) * 1.25);
+    font-size: var(--font-size);
     font-weight: var(--font-weight-medium);
 
     @media (--breakpoint-m) {
-      font-size: var(--font-size-l);
+      --font-size: var(--font-size-l);
     }
   }
 
@@ -113,6 +115,7 @@ watch([() => counterRefIsVisible.value], (isVisible) => {
   &__counter {
     font-size: var(--counter-size);
     font-weight: var(--font-weight-bold);
+    position: absolute;
   }
 }
 </style>
