@@ -78,7 +78,7 @@ watch([() => counterRefIsVisible.value], (isVisible) => {
   display: flex;
   margin: 1rem;
 
-  @media (--breakpoint-s) {
+  @media (--breakpoint-m) {
     --size: 4rem;
     --counter-size: var(--font-size-xxl);
   }
@@ -96,7 +96,7 @@ watch([() => counterRefIsVisible.value], (isVisible) => {
     font-size: var(--font-size-m);
     font-weight: var(--font-weight-medium);
 
-    @media (--breakpoint-s) {
+    @media (--breakpoint-m) {
       font-size: var(--font-size-l);
     }
   }
