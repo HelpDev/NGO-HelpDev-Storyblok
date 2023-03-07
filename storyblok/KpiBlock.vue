@@ -5,7 +5,8 @@ import Vue3Autocounter from 'vue3-autocounter';
 const props = defineProps({ blok: Object });
 
 const { data } = await useFetch(
-  () => `https://raw.githubusercontent.com/tabler/tabler-icons/master/icons/${props.blok?.icon || 'question-mark'}.svg`
+  () => `https://raw.githubusercontent.com/tabler/tabler-icons/master/icons/${props.blok?.icon || 'question-mark'}.svg`,
+  { key: props.blok?.icon }
 );
 
 const title = ref(props.blok?.title);
@@ -71,11 +72,16 @@ watch([() => counterRefIsVisible.value], (isVisible) => {
 
 <style scoped>
 .kpi {
-  --size: 4rem;
-  --counter-size: var(--font-size-xxl);
+  --size: 2rem;
+  --counter-size: var(--font-size-xl);
 
   display: flex;
   margin: 1rem;
+
+  @media (--breakpoint-s) {
+    --size: 4rem;
+    --counter-size: var(--font-size-xxl);
+  }
 
   &__info {
     display: flex;
@@ -87,8 +93,12 @@ watch([() => counterRefIsVisible.value], (isVisible) => {
   &__title {
     width: 7rem;
     padding-top: 0.5rem;
-    font-size: var(--font-size-l);
+    font-size: var(--font-size-m);
     font-weight: var(--font-weight-medium);
+
+    @media (--breakpoint-s) {
+      font-size: var(--font-size-l);
+    }
   }
 
   &__icon:deep(svg) {
